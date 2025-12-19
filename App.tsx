@@ -165,209 +165,200 @@ export default function App() {
       />
 
       {/* Main Content */}
-      <main className="flex-1 pt-24 w-full">
+      <main className="flex-1 w-full">
         {currentPage === 'home' ? (
           <>
-            <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20 pt-10">
-              <section className="mb-20">
-                <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} />
-              </section>
+            {/* Hero Section - Full Width */}
+            <section className="w-full pt-20">
+              <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} />
+            </section>
 
+            <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
               {/* Intro Background Paths Section */}
-              <section className="mb-20">
+              <section className="my-20">
                 <BackgroundPaths 
                   title="Innovation At Scale" 
                   onButtonClick={() => scrollToSection('cta')}
                 />
               </section>
-            </div>
 
-            {/* Content with Background Paths */}
-            <div className="relative w-full">
-              <div className="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
-                 <FloatingPaths position={1} />
-                 <FloatingPaths position={-1} />
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32">
+                {[
+                  { label: "Agents Deployed", val: "2.4k+" },
+                  { label: "Efficiency Boost", val: "85%" },
+                  { label: "Custom Models", val: "120+" },
+                  { label: "Global Clients", val: "400+" }
+                ].map((stat, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-neutral-950/80 backdrop-blur-sm border border-neutral-900 flex flex-col items-center justify-center text-center">
+                    <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-neutral-500 mb-1">{stat.val}</div>
+                    <div className="text-xs uppercase tracking-widest text-neutral-500">{stat.label}</div>
+                  </div>
+                ))}
               </div>
 
-              <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-                {/* Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-32">
-                  {[
-                    { label: "Agents Deployed", val: "2.4k+" },
-                    { label: "Efficiency Boost", val: "85%" },
-                    { label: "Custom Models", val: "120+" },
-                    { label: "Global Clients", val: "400+" }
-                  ].map((stat, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-neutral-950/80 backdrop-blur-sm border border-neutral-900 flex flex-col items-center justify-center text-center">
-                      <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-neutral-500 mb-1">{stat.val}</div>
-                      <div className="text-xs uppercase tracking-widest text-neutral-500">{stat.label}</div>
+              {/* Agents Section */}
+              <section id="agents" className="mb-32 relative scroll-mt-32">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Autonomous Agents</h2>
+                  <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Our specialized agents are built on top of state-of-the-art LLMs, fine-tuned for production reliability and specific business tasks.
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {AGENTS.map((agent, i) => (
+                    <Card key={i} className="group overflow-hidden bg-neutral-950/50 backdrop-blur-sm border-neutral-900 transition-all duration-300 hover:border-neutral-700 hover:translate-y-[-4px] relative">
+                      <SpotlightHover />
+                      <CardHeader>
+                        <div className="w-12 h-12 rounded-xl bg-neutral-900 flex items-center justify-center mb-4 group-hover:bg-neutral-800 transition-colors">
+                          <agent.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-xl text-white">{agent.title}</CardTitle>
+                          <span className="text-[10px] px-2 py-0.5 rounded-full border border-neutral-800 text-neutral-500">{agent.tag}</span>
+                        </div>
+                        <CardDescription className="pt-2 leading-relaxed">
+                          {agent.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardFooter className="pt-0">
+                        <button className="flex items-center gap-1 text-sm text-neutral-400 group-hover:text-white transition-colors">
+                          Deploy Agent <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+
+              {/* Projects Section */}
+              <section id="projects" className="mb-32 relative scroll-mt-32">
+                <div className="text-center mb-16">
+                  <div className="inline-block px-3 py-1 rounded-full border border-blue-500/20 text-[10px] font-bold text-blue-400 mb-6 uppercase tracking-widest bg-blue-500/5">
+                    Every Language. Every Framework.
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Full-Stack Project Forge</h2>
+                  <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Python, Rust, Swift, TypeScript, or C++. We build high-performance custom software tailored to your specific infrastructure needs.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {CODING_PROJECTS.map((project, i) => (
+                    <div key={i} className="group bg-neutral-950/80 backdrop-blur-sm border border-neutral-900 rounded-3xl p-8 hover:border-neutral-700 transition-all relative overflow-hidden flex flex-col h-full">
+                      <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                         <project.icon className="w-48 h-48" />
+                      </div>
+                      <div className="w-14 h-14 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 border border-neutral-800">
+                        <project.icon className="w-7 h-7 text-blue-400" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-2 text-white">{project.name}</h3>
+                      <div className="text-3xl font-bold text-white mb-4">{project.price}</div>
+                      <p className="text-neutral-500 text-sm mb-8 leading-relaxed">{project.description}</p>
+                      <ul className="space-y-4 mb-10 flex-1">
+                        {project.features.map((f, idx) => (
+                          <li key={idx} className="flex items-center gap-2 text-sm text-neutral-300">
+                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                      <button className="w-full py-4 rounded-xl border border-neutral-800 text-white font-bold hover:bg-neutral-900 transition-colors bg-black/40">
+                        Get Estimate
+                      </button>
                     </div>
                   ))}
                 </div>
+              </section>
 
-                {/* Agents Section */}
-                <section id="agents" className="mb-32 relative scroll-mt-32">
+              {/* Plans Section */}
+              <section id="plans" className="mb-32 py-16 bg-neutral-950/30 backdrop-blur-sm rounded-3xl border border-neutral-900/50 relative overflow-hidden scroll-mt-32">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 blur-[100px] rounded-full" />
+                <div className="px-8">
                   <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Autonomous Agents</h2>
-                    <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                      Our specialized agents are built on top of state-of-the-art LLMs, fine-tuned for production reliability and specific business tasks.
-                    </p>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {AGENTS.map((agent, i) => (
-                      <Card key={i} className="group overflow-hidden bg-neutral-950/50 backdrop-blur-sm border-neutral-900 transition-all duration-300 hover:border-neutral-700 hover:translate-y-[-4px] relative">
-                        <SpotlightHover />
-                        <CardHeader>
-                          <div className="w-12 h-12 rounded-xl bg-neutral-900 flex items-center justify-center mb-4 group-hover:bg-neutral-800 transition-colors">
-                            <agent.icon className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <CardTitle className="text-xl text-white">{agent.title}</CardTitle>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full border border-neutral-800 text-neutral-500">{agent.tag}</span>
-                          </div>
-                          <CardDescription className="pt-2 leading-relaxed">
-                            {agent.description}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardFooter className="pt-0">
-                          <button className="flex items-center gap-1 text-sm text-neutral-400 group-hover:text-white transition-colors">
-                            Deploy Agent <ChevronRight className="w-4 h-4" />
-                          </button>
-                        </CardFooter>
-                      </Card>
-                    ))}
-                  </div>
-                </section>
-
-                {/* Projects Section */}
-                <section id="projects" className="mb-32 relative scroll-mt-32">
-                  <div className="text-center mb-16">
-                    <div className="inline-block px-3 py-1 rounded-full border border-blue-500/20 text-[10px] font-bold text-blue-400 mb-6 uppercase tracking-widest bg-blue-500/5">
-                      Every Language. Every Framework.
-                    </div>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Full-Stack Project Forge</h2>
-                    <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                      Python, Rust, Swift, TypeScript, or C++. We build high-performance custom software tailored to your specific infrastructure needs.
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Scalable Plans</h2>
+                    <p className="text-neutral-400 max-w-2xl mx-auto text-lg">
+                      Choose the level of intelligence and support your organization requires. Prices are in INR.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {CODING_PROJECTS.map((project, i) => (
-                      <div key={i} className="group bg-neutral-950/80 backdrop-blur-sm border border-neutral-900 rounded-3xl p-8 hover:border-neutral-700 transition-all relative overflow-hidden flex flex-col h-full">
-                        <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
-                           <project.icon className="w-48 h-48" />
+                    {PLANS.map((plan, i) => (
+                      <div key={i} className={cn(
+                        "relative flex flex-col p-8 rounded-3xl border transition-all duration-300",
+                        plan.highlight 
+                          ? "bg-neutral-900/90 border-neutral-700 shadow-2xl scale-105 z-10" 
+                          : "bg-black/90 border-neutral-900 hover:border-neutral-800"
+                      )}>
+                        {plan.highlight && (
+                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">
+                            Most Popular
+                          </div>
+                        )}
+                        <h3 className="text-xl font-bold mb-2 text-white">{plan.name}</h3>
+                        <div className="flex items-baseline gap-1 mb-4">
+                          <span className="text-4xl font-bold text-white">{plan.price}</span>
+                          {plan.price !== "Custom" && <span className="text-neutral-500 text-sm">/mo</span>}
                         </div>
-                        <div className="w-14 h-14 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 border border-neutral-800">
-                          <project.icon className="w-7 h-7 text-blue-400" />
-                        </div>
-                        <h3 className="text-2xl font-bold mb-2 text-white">{project.name}</h3>
-                        <div className="text-3xl font-bold text-white mb-4">{project.price}</div>
-                        <p className="text-neutral-500 text-sm mb-8 leading-relaxed">{project.description}</p>
-                        <ul className="space-y-4 mb-10 flex-1">
-                          {project.features.map((f, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-sm text-neutral-300">
-                              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                              {f}
-                            </li>
+                        <p className="text-neutral-400 text-sm mb-8 leading-relaxed">
+                          {plan.description}
+                        </p>
+                        <div className="space-y-4 mb-10 flex-1">
+                          {plan.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-center gap-3 text-sm text-neutral-300">
+                              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                              {feature}
+                            </div>
                           ))}
-                        </ul>
-                        <button className="w-full py-4 rounded-xl border border-neutral-800 text-white font-bold hover:bg-neutral-900 transition-colors bg-black/40">
-                          Get Estimate
+                        </div>
+                        <button className={cn(
+                          "w-full py-4 rounded-xl font-bold transition-all",
+                          plan.highlight 
+                            ? "bg-white text-black hover:bg-neutral-200" 
+                            : "bg-neutral-900 text-white hover:bg-neutral-800 border border-neutral-800"
+                        )}>
+                          {plan.buttonText}
                         </button>
                       </div>
                     ))}
                   </div>
-                </section>
+                </div>
+              </section>
 
-                {/* Plans Section */}
-                <section id="plans" className="mb-32 py-16 bg-neutral-950/30 backdrop-blur-sm rounded-3xl border border-neutral-900/50 relative overflow-hidden scroll-mt-32">
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 blur-[100px] rounded-full" />
-                  <div className="px-8">
-                    <div className="text-center mb-16">
-                      <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Scalable Plans</h2>
-                      <p className="text-neutral-400 max-w-2xl mx-auto text-lg">
-                        Choose the level of intelligence and support your organization requires. Prices are in INR.
-                      </p>
+              {/* Workflow Section */}
+              <section id="workflow" className="mb-32 scroll-mt-32">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Our Workflow</h2>
+                  <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                    We operate with high velocity and precision. Here is how we take your project from inception to deployment.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                  {WORKFLOW_STEPS.map((step, i) => (
+                    <div key={i} className="relative p-8 rounded-3xl bg-neutral-950/80 backdrop-blur-sm border border-neutral-900">
+                      <div className="text-5xl font-black text-white/5 absolute top-4 right-4">{step.step}</div>
+                      <h4 className="text-xl font-bold mb-4 text-white">{step.title}</h4>
+                      <p className="text-sm text-neutral-500 leading-relaxed">{step.desc}</p>
                     </div>
+                  ))}
+                </div>
+              </section>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      {PLANS.map((plan, i) => (
-                        <div key={i} className={cn(
-                          "relative flex flex-col p-8 rounded-3xl border transition-all duration-300",
-                          plan.highlight 
-                            ? "bg-neutral-900/90 border-neutral-700 shadow-2xl scale-105 z-10" 
-                            : "bg-black/90 border-neutral-900 hover:border-neutral-800"
-                        )}>
-                          {plan.highlight && (
-                            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">
-                              Most Popular
-                            </div>
-                          )}
-                          <h3 className="text-xl font-bold mb-2 text-white">{plan.name}</h3>
-                          <div className="flex items-baseline gap-1 mb-4">
-                            <span className="text-4xl font-bold text-white">{plan.price}</span>
-                            {plan.price !== "Custom" && <span className="text-neutral-500 text-sm">/mo</span>}
-                          </div>
-                          <p className="text-neutral-400 text-sm mb-8 leading-relaxed">
-                            {plan.description}
-                          </p>
-                          <div className="space-y-4 mb-10 flex-1">
-                            {plan.features.map((feature, idx) => (
-                              <div key={idx} className="flex items-center gap-3 text-sm text-neutral-300">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                                {feature}
-                              </div>
-                            ))}
-                          </div>
-                          <button className={cn(
-                            "w-full py-4 rounded-xl font-bold transition-all",
-                            plan.highlight 
-                              ? "bg-white text-black hover:bg-neutral-200" 
-                              : "bg-neutral-900 text-white hover:bg-neutral-800 border border-neutral-800"
-                          )}>
-                            {plan.buttonText}
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </section>
-
-                {/* Workflow Section */}
-                <section id="workflow" className="mb-32 scroll-mt-32">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Our Workflow</h2>
-                    <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                      We operate with high velocity and precision. Here is how we take your project from inception to deployment.
-                    </p>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    {WORKFLOW_STEPS.map((step, i) => (
-                      <div key={i} className="relative p-8 rounded-3xl bg-neutral-950/80 backdrop-blur-sm border border-neutral-900">
-                        <div className="text-5xl font-black text-white/5 absolute top-4 right-4">{step.step}</div>
-                        <h4 className="text-xl font-bold mb-4 text-white">{step.title}</h4>
-                        <p className="text-sm text-neutral-500 leading-relaxed">{step.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-
-                {/* CTA Section */}
-                <section id="cta" className="mb-32 relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl scroll-mt-32">
-                  <AetherHero
-                    height="600px"
-                    title="Ready to integrate true intelligence?"
-                    subtitle="Our engineers are ready to build your custom AI roadmap. Book a strategy session today and transform your organization's digital labor force."
-                    ctaLabel="Book A Free Audit"
-                    ctaHref="#"
-                    secondaryCtaLabel="Explore Documentation"
-                    secondaryCtaHref="#"
-                    align="center"
-                    overlayGradient="linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, transparent)"
-                  />
-                </section>
-              </div>
+              {/* CTA Section */}
+              <section id="cta" className="mb-32 relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl scroll-mt-32">
+                <AetherHero
+                  height="600px"
+                  title="Ready to integrate true intelligence?"
+                  subtitle="Our engineers are ready to build your custom AI roadmap. Book a strategy session today and transform your organization's digital labor force."
+                  ctaLabel="Book A Free Audit"
+                  ctaHref="#"
+                  secondaryCtaLabel="Explore Documentation"
+                  secondaryCtaHref="#"
+                  align="center"
+                  overlayGradient="linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, transparent)"
+                />
+              </section>
             </div>
           </>
         ) : (
