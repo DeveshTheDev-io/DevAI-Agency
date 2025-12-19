@@ -6,6 +6,8 @@ import { SpotlightHover } from './components/ui/spotlight-hover';
 import { FloatingPaths, BackgroundPaths } from './components/ui/background-paths';
 import { AetherHero } from './components/ui/aether-hero';
 import { Accordion05 } from './components/ui/accordion-05';
+import { Navbar } from './components/ui/mini-navbar';
+import { HoverFooter } from './components/ui/hover-footer';
 import { cn } from './lib/utils';
 import { 
   Bot, 
@@ -126,7 +128,7 @@ export default function App() {
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
-          const navOffset = 80;
+          const navOffset = 120; // Increased offset for floating navbar
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - navOffset;
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -137,7 +139,7 @@ export default function App() {
 
     const element = document.getElementById(id);
     if (element) {
-      const navOffset = 80;
+      const navOffset = 120;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
 
@@ -155,36 +157,20 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-purple-500/30 overflow-x-hidden">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-[100] px-6 py-4 flex items-center justify-between backdrop-blur-md border-b border-white/5 bg-black/50">
-        <div 
-          className="flex items-center gap-2 cursor-pointer group" 
-          onClick={() => navigateToPage('home')}
-        >
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform">
-            <Bot className="w-5 h-5 text-white" />
-          </div>
-          <span className="font-extrabold text-xl tracking-tighter text-white">DEV AI AGENCY</span>
-        </div>
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
-          <button onClick={() => scrollToSection('agents')} className="hover:text-white transition-colors cursor-pointer">Agents</button>
-          <button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors cursor-pointer">Projects</button>
-          <button onClick={() => navigateToPage('about')} className={cn("transition-colors cursor-pointer", currentPage === 'about' ? "text-white underline underline-offset-4" : "hover:text-white")}>About Me</button>
-          <button onClick={() => scrollToSection('plans')} className="hover:text-white transition-colors cursor-pointer">Plans</button>
-          <button onClick={() => scrollToSection('workflow')} className="hover:text-white transition-colors cursor-pointer">Workflow</button>
-          <button className="px-5 py-2 bg-neutral-900 border border-neutral-800 rounded-full hover:border-neutral-600 transition-all text-white">
-            Client Login
-          </button>
-        </div>
-      </nav>
+      {/* Mini Floating Navigation */}
+      <Navbar 
+        onScrollToSection={scrollToSection} 
+        onNavigateToPage={navigateToPage} 
+        currentPage={currentPage}
+      />
 
       {/* Main Content */}
       <main className="flex-1 pt-24 w-full">
         {currentPage === 'home' ? (
           <>
-            <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20">
+            <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-20 pt-10">
               <section className="mb-20">
-                <SplineSceneBasic />
+                <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} />
               </section>
 
               {/* Intro Background Paths Section */}
@@ -220,7 +206,7 @@ export default function App() {
                 </div>
 
                 {/* Agents Section */}
-                <section id="agents" className="mb-32 relative scroll-mt-28">
+                <section id="agents" className="mb-32 relative scroll-mt-32">
                   <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Autonomous Agents</h2>
                     <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -255,7 +241,7 @@ export default function App() {
                 </section>
 
                 {/* Projects Section */}
-                <section id="projects" className="mb-32 relative scroll-mt-28">
+                <section id="projects" className="mb-32 relative scroll-mt-32">
                   <div className="text-center mb-16">
                     <div className="inline-block px-3 py-1 rounded-full border border-blue-500/20 text-[10px] font-bold text-blue-400 mb-6 uppercase tracking-widest bg-blue-500/5">
                       Every Language. Every Framework.
@@ -295,7 +281,7 @@ export default function App() {
                 </section>
 
                 {/* Plans Section */}
-                <section id="plans" className="mb-32 py-16 bg-neutral-950/30 backdrop-blur-sm rounded-3xl border border-neutral-900/50 relative overflow-hidden scroll-mt-28">
+                <section id="plans" className="mb-32 py-16 bg-neutral-950/30 backdrop-blur-sm rounded-3xl border border-neutral-900/50 relative overflow-hidden scroll-mt-32">
                   <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 blur-[100px] rounded-full" />
                   <div className="px-8">
                     <div className="text-center mb-16">
@@ -349,7 +335,7 @@ export default function App() {
                 </section>
 
                 {/* Workflow Section */}
-                <section id="workflow" className="mb-32 scroll-mt-28">
+                <section id="workflow" className="mb-32 scroll-mt-32">
                   <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Our Workflow</h2>
                     <p className="text-neutral-400 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -368,7 +354,7 @@ export default function App() {
                 </section>
 
                 {/* CTA Section */}
-                <section id="cta" className="mb-32 relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl scroll-mt-28">
+                <section id="cta" className="mb-32 relative rounded-3xl overflow-hidden border border-white/5 shadow-2xl scroll-mt-32">
                   <AetherHero
                     height="600px"
                     title="Ready to integrate true intelligence?"
@@ -386,7 +372,7 @@ export default function App() {
           </>
         ) : (
           /* About Me Page View */
-          <div className="relative min-h-screen">
+          <div className="relative min-h-screen pt-20">
             <div className="absolute inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
                <FloatingPaths position={1} />
                <FloatingPaths position={-1} />
@@ -398,55 +384,8 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-neutral-900 bg-neutral-950 py-16 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="col-span-1 md:col-span-2">
-            <div 
-              className="flex items-center gap-2 mb-6 cursor-pointer group" 
-              onClick={() => navigateToPage('home')}
-            >
-              <div className="w-8 h-8 bg-neutral-900 rounded-lg flex items-center justify-center group-hover:bg-neutral-800 transition-colors">
-                <Bot className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-extrabold text-xl tracking-tighter uppercase text-white">Dev AI Agency</span>
-            </div>
-            <p className="text-neutral-500 max-w-sm mb-6 leading-relaxed">
-              Pioneering the next generation of autonomous digital labor. We design, build, and scale AI-native companies.
-            </p>
-            <div className="flex gap-4">
-              <a href="#" className="p-2 bg-neutral-900 rounded-lg text-neutral-400 hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
-              <a href="#" className="p-2 bg-neutral-900 rounded-lg text-neutral-400 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
-              <a href="#" className="p-2 bg-neutral-900 rounded-lg text-neutral-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-            </div>
-          </div>
-          <div>
-            <h4 className="font-bold mb-6 uppercase text-xs tracking-widest text-neutral-300">Solutions</h4>
-            <ul className="space-y-4 text-sm text-neutral-500">
-              <li><button onClick={() => scrollToSection('agents')} className="hover:text-white transition-colors">Custom LLMs</button></li>
-              <li><button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">Coding Forge</button></li>
-              <li><button onClick={() => scrollToSection('plans')} className="hover:text-white transition-colors">Agency Plans</button></li>
-              <li><button onClick={() => scrollToSection('workflow')} className="hover:text-white transition-colors">Our Workflow</button></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-6 uppercase text-xs tracking-widest text-neutral-300">Agency</h4>
-            <ul className="space-y-4 text-sm text-neutral-500">
-              <li><button onClick={() => scrollToSection('workflow')} className="hover:text-white transition-colors text-left">Process</button></li>
-              <li><button className="hover:text-white transition-colors text-left">Case Studies</button></li>
-              <li><button className="hover:text-white transition-colors text-left">Careers</button></li>
-              <li><button onClick={() => navigateToPage('about')} className="hover:text-white transition-colors text-left">About Us</button></li>
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-600">
-          <p>© 2024 DEV AI AGENCY. All rights reserved.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-neutral-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-neutral-400 transition-colors">Terms of Service</a>
-          </div>
-        </div>
-      </footer>
+      {/* Modern Interactive Footer */}
+      <HoverFooter onNavigate={navigateToPage} onScroll={scrollToSection} />
     </div>
   );
 }
