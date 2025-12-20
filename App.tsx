@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SplineSceneBasic } from './components/ui/demo';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from './components/ui/card';
 import { SpotlightHover } from './components/ui/spotlight-hover';
 import { BackgroundPaths } from './components/ui/background-paths';
 import { AetherHero } from './components/ui/aether-hero';
@@ -131,7 +131,7 @@ export default function App() {
           const profile = await databases.getDocument(DATABASE_ID, COLLECTION_ID_PROFILES, currentUser.$id);
           setIsAdmin(profile.role === 'admin');
         } catch (e) {
-          console.log("No specific profile doc found for role check.");
+          console.log("No specific profile doc found.");
         }
       } catch (err) {
         console.log('No active session.');
@@ -171,7 +171,7 @@ export default function App() {
           const offsetPosition = elementPosition + window.pageYOffset - navOffset;
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
-      }, 100);
+      }, 150);
       return;
     }
 
@@ -190,7 +190,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030303] flex flex-col selection:bg-purple-500/30 overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#030303] flex flex-col selection:bg-purple-500/30 relative">
       <Navbar 
         onScrollToSection={scrollToSection} 
         onNavigateToPage={navigateToPage} 
@@ -217,19 +217,19 @@ export default function App() {
       <AnimatePresence mode="wait">
         {currentPage === 'home' ? (
           <motion.main
-            key="home"
+            key="home-main"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
             className="flex-1 w-full relative"
           >
-            <section className="w-full h-screen relative z-10">
+            <section className="w-full h-screen relative z-10 overflow-hidden">
               <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} />
             </section>
 
             <div className="px-5 sm:px-10 lg:px-20 max-w-[1920px] mx-auto relative z-20">
-              <section className="my-20 md:my-40 flex items-center justify-center">
+              <section className="my-20 md:my-40 flex items-center justify-center overflow-hidden">
                 <BackgroundPaths 
                   title="Dev AI Agency Architecting Intelligence" 
                   onButtonClick={() => scrollToSection('cta')}
@@ -414,11 +414,11 @@ export default function App() {
           </motion.main>
         ) : (
           <motion.div 
-            key="about"
+            key="about-page"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
             className="relative min-h-screen pt-40 z-20"
           >
             <div className="relative z-10 px-6 py-20">

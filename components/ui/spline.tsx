@@ -2,7 +2,7 @@
 
 import React, { Suspense, lazy, useState, useEffect } from 'react'
 
-// Use a safe wrapper for the Spline component
+// Lazy load the Spline component to avoid blocking the main thread
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
@@ -12,29 +12,16 @@ interface SplineSceneProps {
 
 export function SplineScene({ scene, className }: SplineSceneProps) {
   const [isMounted, setIsMounted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => setIsMounted(false);
   }, []);
 
-  // Prevent SSR mismatch by not rendering Spline on the server
-  if (!isMounted) return <div className={className} />;
-
-  if (isMobile) {
-    return (
-      <div className={className}>
-        <div className="w-full h-full bg-gradient-to-br from-purple-900/10 via-black to-blue-900/10 flex items-center justify-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.05),transparent_70%)] animate-pulse" />
-        </div>
-      </div>
-    );
+  // Simple error handler for Spline crashes
+  if (hasError || !isMounted) {
+    return <div className={className} />;
   }
 
   return (
@@ -49,6 +36,10 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
         <Spline
           scene={scene}
           className="w-full h-full"
+          onError={() => {
+            console.error("Spline load failed. Reverting to empty container.");
+            setHasError(true);
+          }}
         />
       </Suspense>
     </div>
