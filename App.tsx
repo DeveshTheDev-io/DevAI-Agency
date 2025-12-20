@@ -122,14 +122,11 @@ export default function App() {
   const [user, setUser] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  // Check session on mount
   useEffect(() => {
     const checkSession = async () => {
       try {
         const currentUser = await account.get();
         setUser(currentUser);
-        
-        // Optionally fetch profile details for admin check
         try {
           const profile = await databases.getDocument(DATABASE_ID, COLLECTION_ID_PROFILES, currentUser.$id);
           setIsAdmin(profile.role === 'admin');
@@ -193,7 +190,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030303] flex flex-col selection:bg-purple-500/30 overflow-x-hidden">
+    <div className="min-h-screen bg-[#030303] flex flex-col selection:bg-purple-500/30 overflow-x-hidden relative">
       <Navbar 
         onScrollToSection={scrollToSection} 
         onNavigateToPage={navigateToPage} 
@@ -225,13 +222,13 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex-1 w-full"
+            className="flex-1 w-full relative"
           >
-            <section className="w-full h-screen">
+            <section className="w-full h-screen relative z-10">
               <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} />
             </section>
 
-            <div className="px-5 sm:px-10 lg:px-20 max-w-[1920px] mx-auto">
+            <div className="px-5 sm:px-10 lg:px-20 max-w-[1920px] mx-auto relative z-20">
               <section className="my-20 md:my-40 flex items-center justify-center">
                 <BackgroundPaths 
                   title="Dev AI Agency Architecting Intelligence" 
@@ -422,7 +419,7 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="relative min-h-screen pt-40"
+            className="relative min-h-screen pt-40 z-20"
           >
             <div className="relative z-10 px-6 py-20">
                <Accordion05 />
