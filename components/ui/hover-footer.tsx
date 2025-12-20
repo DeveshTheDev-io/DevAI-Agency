@@ -1,6 +1,5 @@
-
 import React, { useRef, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../../lib/utils";
 import {
   Mail,
@@ -10,8 +9,11 @@ import {
   Linkedin,
   Twitter,
   Globe,
-  Bot
+  Bot,
+  Lock,
+  Loader2
 } from "lucide-react";
+import { AdminPanel } from "./admin-panel";
 
 export const TextHoverEffect = ({
   text,
@@ -154,11 +156,42 @@ export const FooterBackgroundGradient = () => {
 
 export function HoverFooter({ 
   onNavigate, 
-  onScroll 
+  onScroll,
+  onContact
 }: { 
   onNavigate: (p: 'home' | 'about') => void, 
-  onScroll: (id: string) => void 
+  onScroll: (id: string) => void,
+  onContact: () => void
 }) {
+  const [clickCount, setClickCount] = useState(0);
+  const [showPassPrompt, setShowPassPrompt] = useState(false);
+  const [password, setPassword] = useState("");
+  const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSecretTrigger = () => {
+    setClickCount(prev => prev + 1);
+    if (clickCount + 1 >= 3) {
+      setShowPassPrompt(true);
+      setClickCount(0);
+    }
+    // Reset click count after 2 seconds
+    setTimeout(() => setClickCount(0), 2000);
+  };
+
+  const handleAdminAuth = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === "FORGE_ALPHA_99") {
+      setIsAdminPanelOpen(true);
+      setShowPassPrompt(false);
+      setPassword("");
+      setError("");
+    } else {
+      setError("AUTHORIZATION REJECTED");
+      setTimeout(() => setError(""), 2000);
+    }
+  };
+
   const footerLinks = [
     {
       title: "Solutions",
@@ -174,7 +207,7 @@ export function HoverFooter({
       links: [
         { label: "Our Process", onClick: () => onScroll('workflow') },
         { label: "Meet the Team", onClick: () => onNavigate('about') },
-        { label: "Case Studies", href: "#" },
+        { label: "Contact Support", onClick: onContact },
         { label: "Agent Status", href: "#", pulse: true },
       ],
     },
@@ -184,12 +217,12 @@ export function HoverFooter({
     {
       icon: <Mail size={18} className="text-purple-400" />,
       text: "hello@devai.agency",
-      href: "mailto:hello@devai.agency",
+      onClick: onContact,
     },
     {
       icon: <Phone size={18} className="text-purple-400" />,
       text: "+91 83193 94103",
-      href: "tel:+918319394103",
+      onClick: onContact,
     },
     {
       icon: <MapPin size={18} className="text-purple-400" />,
@@ -206,6 +239,46 @@ export function HoverFooter({
 
   return (
     <footer className="bg-[#0F0F11]/40 relative h-fit rounded-t-[3rem] overflow-hidden mt-20 border-t border-white/5">
+      <AdminPanel isOpen={isAdminPanelOpen} onClose={() => setIsAdminPanelOpen(false)} />
+
+      {/* Secret Password Prompt */}
+      <AnimatePresence>
+        {showPassPrompt && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60000] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="w-full max-w-xs p-8 bg-neutral-950 border border-white/10 rounded-3xl"
+            >
+              <div className="flex justify-center mb-6">
+                <Lock className="w-8 h-8 text-purple-500" />
+              </div>
+              <h3 className="text-center text-xs font-black uppercase tracking-[0.3em] text-white mb-6">Master Console</h3>
+              <form onSubmit={handleAdminAuth} className="space-y-4">
+                <input
+                  autoFocus
+                  type="password"
+                  placeholder="IDENTITY KEY"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-neutral-900 border border-white/5 rounded-xl px-4 py-3 text-sm text-center font-mono tracking-widest focus:outline-none focus:border-purple-500/50"
+                />
+                {error && <p className="text-[10px] text-red-500 text-center font-black uppercase tracking-widest">{error}</p>}
+                <div className="flex gap-2">
+                   <button type="submit" className="flex-1 py-3 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-xl">Authorize</button>
+                   <button type="button" onClick={() => setShowPassPrompt(false)} className="px-4 py-3 bg-neutral-900 text-white rounded-xl text-[10px] font-black">X</button>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="max-w-7xl mx-auto p-10 md:p-20 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section */}
@@ -275,13 +348,13 @@ export function HoverFooter({
               {contactInfo.map((item, i) => (
                 <li key={i} className="flex items-center space-x-3">
                   {item.icon}
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className="text-neutral-500 hover:text-white transition-colors text-sm font-medium"
+                  {item.onClick ? (
+                    <button
+                      onClick={item.onClick}
+                      className="text-neutral-500 hover:text-white transition-colors text-sm font-medium text-left"
                     >
                       {item.text}
-                    </a>
+                    </button>
                   ) : (
                     <span className="text-neutral-500 text-sm font-medium">
                       {item.text}
@@ -309,9 +382,16 @@ export function HoverFooter({
                     ))}
                 </div>
 
-                {/* Copyright */}
-                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 text-neutral-600 font-medium">
-                    <p>&copy; {new Date().getFullYear()} DEVA.I AGENCY. ALL RIGHTS RESERVED.</p>
+                {/* Copyright - THE HIDDEN TRIGGER IS HERE */}
+                <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 text-neutral-600 font-medium select-none">
+                    <p>
+                      <span 
+                        onClick={handleSecretTrigger} 
+                        className="cursor-default hover:text-neutral-400 transition-colors"
+                      >
+                        &copy;
+                      </span> {new Date().getFullYear()} DEVA.I AGENCY. ALL RIGHTS RESERVED.
+                    </p>
                     <div className="flex gap-6 uppercase tracking-tighter">
                         <a href="#" className="hover:text-neutral-400 transition-colors">Privacy</a>
                         <a href="#" className="hover:text-neutral-400 transition-colors">Terms</a>

@@ -1,48 +1,45 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "./button";
 
 export function FloatingPaths({ position }: { position: number }) {
-    const paths = Array.from({ length: 36 }, (_, i) => ({
+    // Optimized for visibility and performance
+    const paths = Array.from({ length: 10 }, (_, i) => ({
         id: i,
-        d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-            380 - i * 5 * position
-        } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-            152 - i * 5 * position
-        } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-            684 - i * 5 * position
-        } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-        color: `rgba(15,23,42,${0.1 + i * 0.03})`,
-        width: 0.5 + i * 0.03,
+        d: `M-${380 - i * 20 * position} -${189 + i * 20}C-${
+            380 - i * 20 * position
+        } -${189 + i * 20} -${312 - i * 20 * position} ${216 - i * 20} ${
+            152 - i * 20 * position
+        } ${343 - i * 20}C${616 - i * 20 * position} ${470 - i * 20} ${
+            684 - i * 20 * position
+        } ${875 - i * 20} ${684 - i * 20 * position} ${875 - i * 20}`,
+        width: 0.8 + i * 0.1,
     }));
 
     return (
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none will-change-transform">
             <svg
-                className="w-full h-full text-slate-950 dark:text-white"
+                className="w-full h-full text-white/30"
                 viewBox="0 0 696 316"
                 fill="none"
                 preserveAspectRatio="none"
             >
-                <title>Background Paths</title>
                 {paths.map((path) => (
                     <motion.path
                         key={path.id}
                         d={path.d}
                         stroke="currentColor"
                         strokeWidth={path.width}
-                        strokeOpacity={0.1 + path.id * 0.03}
-                        initial={{ pathLength: 0.3, opacity: 0.6 }}
+                        strokeOpacity={0.15 + path.id * 0.04}
+                        initial={{ pathLength: 0.1, opacity: 0 }}
                         animate={{
-                            pathLength: 1,
-                            opacity: [0.3, 0.6, 0.3],
-                            pathOffset: [0, 1, 0],
+                            pathLength: [0.2, 0.6, 0.2],
+                            opacity: [0.2, 0.5, 0.2],
                         }}
                         transition={{
-                            duration: 20 + Math.random() * 10,
+                            duration: 12 + Math.random() * 8,
                             repeat: Number.POSITIVE_INFINITY,
-                            ease: "linear",
+                            ease: "easeInOut",
                         }}
                     />
                 ))}
@@ -61,41 +58,38 @@ export function BackgroundPaths({
     const words = title.split(" ");
 
     return (
-        <div className="relative w-full flex items-center justify-center overflow-hidden py-32">
-            <div className="absolute inset-0 z-0">
+        <div className="relative w-full flex items-center justify-center overflow-hidden py-16 md:py-32 transform-gpu">
+            <div className="absolute inset-0 z-0 opacity-100">
                 <FloatingPaths position={1} />
                 <FloatingPaths position={-1} />
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+            <div className="relative z-10 container mx-auto px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 2 }}
+                    transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto"
                 >
-                    <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-8 tracking-tighter">
+                    <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-10 tracking-tighter leading-none">
                         {words.map((word, wordIndex) => (
                             <span
                                 key={wordIndex}
-                                className="inline-block mr-4 last:mr-0"
+                                className="inline-block mr-3 md:mr-6 last:mr-0"
                             >
                                 {word.split("").map((letter, letterIndex) => (
                                     <motion.span
                                         key={`${wordIndex}-${letterIndex}`}
-                                        initial={{ y: 100, opacity: 0 }}
+                                        initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
                                         transition={{
-                                            delay:
-                                                wordIndex * 0.1 +
-                                                letterIndex * 0.03,
+                                            delay: wordIndex * 0.05 + letterIndex * 0.02,
                                             type: "spring",
                                             stiffness: 150,
                                             damping: 25,
                                         }}
                                         className="inline-block text-transparent bg-clip-text 
-                                        bg-gradient-to-r from-neutral-900 to-neutral-700/80 
-                                        dark:from-white dark:to-white/80"
+                                        bg-gradient-to-b from-white to-white/60"
                                     >
                                         {letter}
                                     </motion.span>
@@ -105,28 +99,17 @@ export function BackgroundPaths({
                     </h1>
 
                     <div
-                        className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 
-                        dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg 
-                        overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        className="inline-block group relative bg-white/10 p-px rounded-2xl backdrop-blur-md 
+                        overflow-hidden"
                     >
                         <Button
                             variant="ghost"
                             onClick={onButtonClick}
-                            className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md 
-                            bg-white/95 hover:bg-white/100 dark:bg-black/95 dark:hover:bg-black/100 
-                            text-black dark:text-white transition-all duration-300 
-                            group-hover:-translate-y-0.5 border border-black/10 dark:border-white/10
-                            hover:shadow-md dark:hover:shadow-neutral-800/50"
+                            className="rounded-2xl px-8 py-6 md:px-10 md:py-8 text-lg font-bold 
+                            bg-white text-black hover:bg-neutral-200 transition-all duration-300"
                         >
-                            <span className="opacity-90 group-hover:opacity-100 transition-opacity">
-                                Discover Excellence
-                            </span>
-                            <span
-                                className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 
-                                transition-all duration-300"
-                            >
-                                →
-                            </span>
+                            <span>Initiate Forge</span>
+                            <span className="ml-3 group-hover:translate-x-1 transition-transform">→</span>
                         </Button>
                     </div>
                 </motion.div>
