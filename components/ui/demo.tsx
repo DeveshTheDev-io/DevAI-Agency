@@ -12,14 +12,14 @@ interface SplineSceneBasicProps {
 
 export function SplineSceneBasic({ onCtaClick }: SplineSceneBasicProps) {
   return (
-    <div className="w-full h-[90vh] md:h-screen bg-black relative overflow-hidden flex items-center justify-center transform-gpu">
+    <div className="w-full h-[90vh] md:h-screen bg-black relative overflow-hidden flex items-center justify-center">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
       />
       
       <div className="flex flex-col md:flex-row h-full w-full max-w-[1920px] mx-auto z-20 px-4 md:px-0">
         {/* Left content */}
-        <div className="flex-1 p-6 md:p-16 lg:p-24 flex flex-col justify-center will-change-transform pt-24 md:pt-0">
+        <div className="flex-1 p-6 md:p-16 lg:p-24 flex flex-col justify-center pt-24 md:pt-0">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export function SplineSceneBasic({ onCtaClick }: SplineSceneBasicProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="flex-1 relative min-h-[300px] md:min-h-0 will-change-transform"
+          className="flex-1 relative min-h-[300px] md:min-h-0"
         >
           <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-black via-black/40 to-transparent z-10 pointer-events-none md:block hidden" />
           <SplineScene 
