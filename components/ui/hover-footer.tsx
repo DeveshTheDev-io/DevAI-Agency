@@ -9,9 +9,6 @@ import {
   Linkedin,
   Twitter,
   Globe,
-  Bot,
-  Lock,
-  Loader2
 } from "lucide-react";
 import { AdminPanel } from "./admin-panel";
 
@@ -164,32 +161,16 @@ export function HoverFooter({
   onContact: () => void
 }) {
   const [clickCount, setClickCount] = useState(0);
-  const [showPassPrompt, setShowPassPrompt] = useState(false);
-  const [password, setPassword] = useState("");
   const [isAdminPanelOpen, setIsAdminPanelOpen] = useState(false);
-  const [error, setError] = useState("");
 
   const handleSecretTrigger = () => {
     setClickCount(prev => prev + 1);
     if (clickCount + 1 >= 3) {
-      setShowPassPrompt(true);
+      setIsAdminPanelOpen(true);
       setClickCount(0);
     }
     // Reset click count after 2 seconds
     setTimeout(() => setClickCount(0), 2000);
-  };
-
-  const handleAdminAuth = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === "FORGE_ALPHA_99") {
-      setIsAdminPanelOpen(true);
-      setShowPassPrompt(false);
-      setPassword("");
-      setError("");
-    } else {
-      setError("AUTHORIZATION REJECTED");
-      setTimeout(() => setError(""), 2000);
-    }
   };
 
   const footerLinks = [
@@ -241,47 +222,8 @@ export function HoverFooter({
     <footer className="bg-[#0F0F11]/40 relative h-fit rounded-t-[3rem] overflow-hidden mt-20 border-t border-white/5">
       <AdminPanel isOpen={isAdminPanelOpen} onClose={() => setIsAdminPanelOpen(false)} />
 
-      {/* Secret Password Prompt */}
-      <AnimatePresence>
-        {showPassPrompt && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60000] flex items-center justify-center bg-black/90 backdrop-blur-sm"
-          >
-            <motion.div 
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              className="w-full max-w-xs p-8 bg-neutral-950 border border-white/10 rounded-3xl"
-            >
-              <div className="flex justify-center mb-6">
-                <Lock className="w-8 h-8 text-purple-500" />
-              </div>
-              <h3 className="text-center text-xs font-black uppercase tracking-[0.3em] text-white mb-6">Master Console</h3>
-              <form onSubmit={handleAdminAuth} className="space-y-4">
-                <input
-                  autoFocus
-                  type="password"
-                  placeholder="IDENTITY KEY"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-neutral-900 border border-white/5 rounded-xl px-4 py-3 text-sm text-center font-mono tracking-widest focus:outline-none focus:border-purple-500/50"
-                />
-                {error && <p className="text-[10px] text-red-500 text-center font-black uppercase tracking-widest">{error}</p>}
-                <div className="flex gap-2">
-                   <button type="submit" className="flex-1 py-3 bg-white text-black text-[10px] font-black uppercase tracking-widest rounded-xl">Authorize</button>
-                   <button type="button" onClick={() => setShowPassPrompt(false)} className="px-4 py-3 bg-neutral-900 text-white rounded-xl text-[10px] font-black">X</button>
-                </div>
-              </form>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <div className="max-w-7xl mx-auto p-10 md:p-20 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
-          {/* Brand section */}
           <div className="flex flex-col space-y-6">
             <div 
                 className="flex items-center gap-3 cursor-pointer group"
@@ -306,7 +248,6 @@ export function HoverFooter({
             </p>
           </div>
 
-          {/* Footer link sections */}
           {footerLinks.map((section) => (
             <div key={section.title}>
               <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-8">
@@ -339,7 +280,6 @@ export function HoverFooter({
             </div>
           ))}
 
-          {/* Contact section */}
           <div>
             <h4 className="text-white text-sm font-bold uppercase tracking-widest mb-8">
               Connect
@@ -368,7 +308,6 @@ export function HoverFooter({
 
         <div className="border-t border-neutral-800/50 mt-16 pt-10">
             <div className="flex flex-col md:flex-row justify-between items-center text-xs space-y-6 md:space-y-0">
-                {/* Social icons */}
                 <div className="flex space-x-6 text-neutral-500">
                     {socialLinks.map(({ icon, label, href }) => (
                     <a
@@ -382,7 +321,6 @@ export function HoverFooter({
                     ))}
                 </div>
 
-                {/* Copyright - THE HIDDEN TRIGGER IS HERE */}
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 text-neutral-600 font-medium select-none">
                     <p>
                       <span 
@@ -401,7 +339,6 @@ export function HoverFooter({
         </div>
       </div>
 
-      {/* Text hover effect */}
       <div className="lg:flex hidden h-[25rem] -mt-40 -mb-28 pointer-events-none opacity-50">
         <TextHoverEffect text="DEVA.I" className="z-50" />
       </div>

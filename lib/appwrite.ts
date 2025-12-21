@@ -1,4 +1,4 @@
-import { Client, Account, Databases, ID } from 'appwrite';
+import { Client, Account, Databases, ID, Teams } from 'appwrite';
 
 /**
  * Appwrite Configuration
@@ -9,8 +9,7 @@ const client = new Client()
     .setEndpoint('https://fra.cloud.appwrite.io/v1') 
     .setProject('69464b94000f516cfa92'); 
 
-// Verify connection on initialization using standard SDK methods
-// We attempt to fetch the current account; a 401 (Unauthorized) still confirms the server is reachable.
+// Verify connection on initialization
 const connectivityCheck = new Account(client);
 connectivityCheck.get()
     .then(() => console.log("Appwrite: Neural Link Established (Session Verified)"))
@@ -24,6 +23,7 @@ connectivityCheck.get()
 
 export const account = new Account(client);
 export const databases = new Databases(client);
+export const teams = new Teams(client);
 export const APPWRITE_ID = ID;
 
 export const DATABASE_ID = 'agency_db'; 

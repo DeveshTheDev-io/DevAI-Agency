@@ -84,7 +84,7 @@ export function SplineSceneBasic({ onCtaClick }: SplineSceneBasicProps) {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className="text-[9px] font-black text-emerald-500/80 tracking-[0.2em] uppercase">
-                Active Q1 2024
+                Available for Projects
               </span>
             </div>
           </motion.div>
