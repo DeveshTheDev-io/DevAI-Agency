@@ -104,6 +104,7 @@ export function Navbar({
     { label: 'Workflow', action: () => onScrollToSection('workflow') },
     { label: 'Courses', action: () => onScrollToSection('courses') },
     { label: 'Plans', action: () => onScrollToSection('plans') },
+    { label: 'Portfolio', action: () => window.location.href = '/portfolio.html' },
     { label: 'About', action: () => onNavigateToPage('about'), isActive: currentPage === 'about' },
   ];
 
