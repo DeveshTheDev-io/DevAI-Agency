@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2, ShieldCheck, Mail, Lock, User, Phone, MapPin, ArrowRight, AtSign } from 'lucide-react';
-import { account, databases, DATABASE_ID, COLLECTION_ID_PROFILES, APPWRITE_ID } from '../../lib/appwrite';
-import { Query } from 'appwrite';
+import { supabase } from '../../lib/supabase';
 import { cn } from '../../lib/utils';
 
 interface AuthModalProps {
@@ -51,70 +50,65 @@ export function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'login' }:
 
     try {
       if (mode === 'signup') {
-        // 1. Check if username is already taken in the profiles collection
-        const existingUsers = await databases.listDocuments(
-          DATABASE_ID,
-          COLLECTION_ID_PROFILES,
-          [Query.equal('username', formData.username.toLowerCase())]
-        );
-
-        if (existingUsers.total > 0) {
+        const { data: existingUsers, error: userCheckError } = await supabase
+          .from('users')
+          .select('id')
+          .eq('username', formData.username.toLowerCase());
+          
+        if (userCheckError) throw userCheckError;
+        if (existingUsers && existingUsers.length > 0) {
           throw new Error("This username is already claimed in the forge.");
         }
 
-        // 2. Create Account
-        const userAccount = await account.create(
-          APPWRITE_ID.unique(),
-          formData.email,
-          formData.password,
-          formData.name
-        );
-
-        // 3. Create Session
-        await account.createEmailPasswordSession(formData.email, formData.password);
-
-        // 4. Create Profile Document for extra details including the username
-        try {
-          await databases.createDocument(
-            DATABASE_ID,
-            COLLECTION_ID_PROFILES,
-            userAccount.$id, 
-            {
-              userId: userAccount.$id,
-              username: formData.username.toLowerCase(),
-              name: formData.name,
-              email: formData.email,
-              phone: formData.phone,
-              address: formData.address,
-              role: 'user',
-              createdAt: new Date().toISOString()
+        const { data: authData, error: signUpError } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            data: {
+              full_name: formData.name,
             }
-          );
+          }
+        });
+
+        if (signUpError) throw signUpError;
+        if (!authData.user) throw new Error("Account creation failed.");
+
+        try {
+          const { error: profileErr } = await supabase.from('users').insert({
+            id: authData.user.id,
+            username: formData.username.toLowerCase(),
+            full_name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address,
+            role: 'user'
+          });
+          if (profileErr) throw profileErr;
         } catch (profileErr) {
           console.error("Profile creation failed, but account exists:", profileErr);
         }
 
-        const currentUser = await account.get();
-        onSuccess(currentUser);
+        onSuccess(authData.user);
       } else {
-        // LOGIN MODE
-        // 1. Resolve Username to Email
-        const profileSearch = await databases.listDocuments(
-          DATABASE_ID,
-          COLLECTION_ID_PROFILES,
-          [Query.equal('username', formData.username.toLowerCase())]
-        );
+        const { data: profileSearch, error: searchErr } = await supabase
+          .from('users')
+          .select('email')
+          .eq('username', formData.username.toLowerCase());
 
-        if (profileSearch.total === 0) {
+        if (searchErr) throw searchErr;
+        if (!profileSearch || profileSearch.length === 0) {
           throw new Error("Identity not found. Please verify your username.");
         }
 
-        const userEmail = profileSearch.documents[0].email;
+        const userEmail = profileSearch[0].email;
 
-        // 2. Login with Resolved Email
-        await account.createEmailPasswordSession(userEmail, formData.password);
-        const currentUser = await account.get();
-        onSuccess(currentUser);
+        const { data: loginData, error: loginErr } = await supabase.auth.signInWithPassword({
+          email: userEmail,
+          password: formData.password,
+        });
+        
+        if (loginErr) throw loginErr;
+        onSuccess(loginData.user);
       }
       onClose();
     } catch (err: any) {

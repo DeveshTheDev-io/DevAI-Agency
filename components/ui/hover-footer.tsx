@@ -238,7 +238,7 @@ export function HoverFooter({
               <div className="flex flex-col items-baseline leading-none select-none">
                 <div className="flex items-baseline">
                   <span className="text-xl font-bold tracking-tighter text-white">Dev</span>
-                  <span className="text-xl font-black tracking-tighter bg-gradient-to-br from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">A.I</span>
+                  <span className="ml-1 text-xl font-black tracking-tighter bg-gradient-to-br from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">A.I</span>
                 </div>
                 <span className="text-[10px] font-bold tracking-[0.25em] text-neutral-500 uppercase opacity-60">Agency</span>
               </div>
@@ -340,7 +340,7 @@ export function HoverFooter({
       </div>
 
       <div className="lg:flex hidden h-[25rem] -mt-40 -mb-28 pointer-events-none opacity-50">
-        <TextHoverEffect text="DEVA.I" className="z-50" />
+        <TextHoverEffect text="DEV A.I" className="z-50" />
       </div>
 
       <FooterBackgroundGradient />

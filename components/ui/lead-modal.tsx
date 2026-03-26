@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, CheckCircle2, Loader2, Sparkles, Building2, User, Mail, MessageCircle, BarChart3, Clock } from 'lucide-react';
-// Fix: Import COLLECTION_ID_LEADS instead of non-existent COLLECTION_ID
-import { databases, DATABASE_ID, COLLECTION_ID_LEADS, APPWRITE_ID } from '../../lib/appwrite';
+import { supabase } from '../../lib/supabase';
 import { cn } from '../../lib/utils';
 
 interface LeadModalProps {
@@ -54,20 +53,15 @@ export function LeadModal({ isOpen, onClose, source = "General Inquiry" }: LeadM
     setLoading(true);
 
     try {
-      await databases.createDocument(
-        DATABASE_ID,
-        // Fix: Use COLLECTION_ID_LEADS instead of COLLECTION_ID
-        COLLECTION_ID_LEADS,
-        APPWRITE_ID.unique(),
-        {
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message,
-          source: source,
-          timestamp: new Date().toISOString()
-        }
-      );
+      const { error } = await supabase.from('projects').insert([{
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        source: source
+      }]);
+      
+      if (error) throw error;
       
       setSuccess(true);
       setTimeout(() => {

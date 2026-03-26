@@ -10,8 +10,7 @@ export default defineConfig({
         manualChunks: {
           'vendor-core': ['react', 'react-dom', 'framer-motion'],
           'vendor-ui': ['lucide-react', 'clsx', 'tailwind-merge', '@radix-ui/react-accordion', '@radix-ui/react-slot'],
-          'vendor-3d': ['@splinetool/react-spline'],
-          'vendor-backend': ['appwrite']
+          'vendor-backend': ['@supabase/supabase-js']
         }
       }
     }
