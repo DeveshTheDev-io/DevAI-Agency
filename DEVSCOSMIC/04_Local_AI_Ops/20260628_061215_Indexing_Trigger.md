@@ -1,0 +1,1 @@
+Triggered nomic-embed-text:latest to index the vault.

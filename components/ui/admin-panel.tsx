@@ -359,7 +359,7 @@ export function AdminPanel({ isOpen, onClose }: AdminPanelProps) {
             <Lock className="w-9 h-9 text-purple-400" />
           </div>
           <h2 className="text-2xl font-black text-white uppercase tracking-[0.2em]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Admin Console</h2>
-          <p className="text-[9px] text-neutral-500 uppercase tracking-[0.3em] mt-2 font-bold">Dev AI Agency — Control Center</p>
+          <p className="text-[9px] text-neutral-500 uppercase tracking-[0.3em] mt-2 font-bold">Devscosmic A.I — Control Center</p>
         </div>
 
         <div className="bg-neutral-950 border border-white/[0.07] rounded-[2rem] p-8">

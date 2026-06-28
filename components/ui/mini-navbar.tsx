@@ -90,10 +90,9 @@ export function Navbar({
       </div>
       <div className="flex flex-col sm:flex-row items-baseline leading-none gap-0 sm:gap-1.5 select-none">
         <div className="flex items-baseline">
-          <span className="text-sm font-bold tracking-tighter text-white">Dev</span>
+          <span className="text-sm font-bold tracking-tighter text-white">Devscosmic</span>
           <span className="ml-1 text-sm font-black tracking-tighter bg-gradient-to-br from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">A.I</span>
         </div>
-        <span className="text-[9px] font-bold tracking-[0.25em] text-neutral-500 uppercase opacity-60">AGENCY</span>
       </div>
     </div>
   );

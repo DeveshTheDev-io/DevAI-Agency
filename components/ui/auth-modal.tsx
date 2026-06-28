@@ -153,7 +153,7 @@ export function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'login' }:
                   {mode === 'signup' ? 'Forge Identity' : 'Initialize Session'}
                 </h2>
                 <p className="text-sm text-neutral-500 mt-1">
-                  {mode === 'signup' ? 'Join the Dev AI Agency ecosystem.' : 'Authorize access with your unique handle.'}
+                  {mode === 'signup' ? 'Join the Devscosmic A.I ecosystem.' : 'Authorize access with your unique handle.'}
                 </p>
               </div>
 

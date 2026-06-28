@@ -12,7 +12,7 @@ const items = [
     id: "01",
     title: "Who are we?",
     content:
-      "We are DEV AI AGENCY — a specialized collective of AI architects and high-performance engineers dedicated to bridging the gap between raw intelligence and production-grade software.",
+      "We are Devscosmic A.I — a specialized collective of AI architects and high-performance engineers dedicated to bridging the gap between raw intelligence and production-grade software.",
   },
   {
     id: "02",
