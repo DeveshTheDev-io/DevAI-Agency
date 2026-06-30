@@ -11,6 +11,10 @@ import { HoverFooter } from './components/ui/hover-footer';
 import { AgentsPage } from './components/ui/agents-page';
 import { LeadModal } from './components/ui/lead-modal';
 import { AuthModal } from './components/ui/auth-modal';
+import { MouseAuras } from './components/ui/mouse-auras';
+import { RoiCalculator } from './components/ui/roi-calculator';
+import { TestimonialsSection } from './components/ui/testimonials-section';
+import { TeamSection } from './components/ui/team-section';
 import { supabase } from './lib/supabase';
 import { cn } from './lib/utils';
 import {
@@ -485,6 +489,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#030303] flex flex-col selection:bg-purple-500/30 relative">
+      <MouseAuras />
       <Navbar
         onScrollToSection={scrollToSection}
         onNavigateToPage={navigateToPage}
@@ -548,7 +553,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-[minmax(300px,auto)]">
                   {CODING_PROJECTS.map((project, i) => (
                     <motion.div
                       key={i}
@@ -557,7 +562,12 @@ export default function App() {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.12, duration: 0.5 }}
                       whileHover={{ y: -8 }}
-                      className="group bg-neutral-950/50 backdrop-blur-xl border border-white/[0.06] rounded-[2.5rem] p-8 md:p-12 hover:border-white/10 transition-all duration-500 relative overflow-hidden flex flex-col h-full"
+                      className={cn(
+                        "group bg-neutral-950/50 backdrop-blur-xl border border-white/[0.06] rounded-[2.5rem] p-8 md:p-12 hover:border-white/10 transition-all duration-500 relative overflow-hidden flex flex-col",
+                        i === 0 ? "lg:col-span-2 lg:row-span-1" : "",
+                        i === 1 ? "lg:col-span-1 lg:row-span-2" : "",
+                        i === 2 ? "lg:col-span-2 lg:row-span-1" : ""
+                      )}
                     >
                       <div className={cn("absolute inset-x-0 top-0 h-px bg-gradient-to-r", project.accentColor)} />
 
@@ -677,6 +687,9 @@ export default function App() {
                 </div>
               </section>
 
+              {/* ROI Calculator */}
+              <RoiCalculator />
+
               {/* Pricing */}
               <section id="plans" className="mb-40 md:mb-60 relative scroll-mt-32">
                 <div className="text-center mb-20 md:mb-28">
@@ -758,6 +771,9 @@ export default function App() {
                   </motion.button>
                 </div>
               </section>
+
+              {/* Testimonials */}
+              <TestimonialsSection />
 
               {/* Workflow */}
               <section id="workflow" className="mb-40 md:mb-60 scroll-mt-32">
@@ -925,6 +941,7 @@ export default function App() {
                   </div>
                 </div>
               </section>
+              <TeamSection />
               <Accordion05 />
             </div>
           </motion.div>
