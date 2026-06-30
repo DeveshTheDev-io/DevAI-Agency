@@ -36,10 +36,10 @@ const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ label, onClick, isAct
 
 interface NavbarProps {
   onScrollToSection: (id: string) => void;
-  onNavigateToPage: (page: 'home' | 'about') => void;
+  onNavigateToPage: (page: 'home' | 'about' | 'agents') => void;
   onAuthOpen: (mode: 'login' | 'signup') => void;
   onLogout: () => void;
-  currentPage: 'home' | 'about';
+  currentPage: 'home' | 'about' | 'agents';
   user: any;
   isAdmin?: boolean;
 }
@@ -98,7 +98,7 @@ export function Navbar({
   );
 
   const navLinksData = [
-    { label: 'Agents', action: () => onScrollToSection('agents') },
+    { label: 'Agents', action: () => onNavigateToPage('agents'), isActive: currentPage === 'agents' },
     { label: 'Projects', action: () => onScrollToSection('projects') },
     { label: 'Workflow', action: () => onScrollToSection('workflow') },
     { label: 'Courses', action: () => onScrollToSection('courses') },

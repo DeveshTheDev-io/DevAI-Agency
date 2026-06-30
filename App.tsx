@@ -8,6 +8,7 @@ import { AetherHero } from './components/ui/aether-hero';
 import { Accordion05 } from './components/ui/accordion-05';
 import { Navbar } from './components/ui/mini-navbar';
 import { HoverFooter } from './components/ui/hover-footer';
+import { AgentsPage } from './components/ui/agents-page';
 import { LeadModal } from './components/ui/lead-modal';
 import { AuthModal } from './components/ui/auth-modal';
 import { supabase } from './lib/supabase';
@@ -321,7 +322,7 @@ function AnimatedStat({ target, suffix, display }: { target: number; suffix: str
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'about'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'agents'>('home');
   const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
@@ -477,7 +478,7 @@ export default function App() {
     }
   }, [currentPage]);
 
-  const navigateToPage = (page: 'home' | 'about') => {
+  const navigateToPage = (page: 'home' | 'about' | 'agents') => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
@@ -530,55 +531,6 @@ export default function App() {
                   title="Forge the Future of Labor"
                   onButtonClick={() => scrollToSection('cta')}
                 />
-              </section>
-
-              {/* Business Growth AI Agents Marketplace */}
-              <section id="agents" className="mb-40 md:mb-60 relative scroll-mt-32">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
-                  <div className="max-w-4xl">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[9px] font-black uppercase tracking-[0.3em] text-neutral-500 mb-6">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                      Growth Engine
-                    </div>
-                    <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-[0.9]">Business Growth<br/>AI Agents</h2>
-                  </div>
-                  <p className="text-neutral-500 text-base md:text-xl leading-relaxed max-w-sm">
-                    Trending autonomous solutions to scale your operations without overhead.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                  {liveAgents.map((agent, i) => {
-                    const colors = colorMap[agent.color];
-                    return (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1, duration: 0.5 }}
-                        whileHover={{ y: -8 }}
-                        className="group bg-neutral-950/40 backdrop-blur-xl border border-white/[0.06] rounded-[2.5rem] p-8 md:p-10 hover:border-white/10 transition-all duration-500 relative overflow-hidden flex flex-col h-full"
-                      >
-                        <SpotlightHover />
-                        <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-8 border transition-all duration-500", colors.glow)}>
-                          <agent.icon className={cn("w-6 h-6", colors.icon)} />
-                        </div>
-                        <div className="flex items-center gap-2 mb-4">
-                          <h3 className="text-xl font-bold text-white tracking-tight">{agent.title}</h3>
-                          <span className={cn("text-[7px] px-2 py-0.5 rounded-full border font-bold uppercase tracking-widest", colors.tag)}>{agent.tag}</span>
-                        </div>
-                        <p className="text-neutral-500 text-sm leading-relaxed mb-8 flex-grow">{agent.description}</p>
-                        <button 
-                          onClick={() => openInquiryModal(`Agent Deployment: ${agent.title}`)}
-                          className="w-full py-3 rounded-xl border border-white/[0.08] text-white text-[9px] font-black hover:bg-white hover:text-black transition-all bg-transparent uppercase tracking-[0.3em]"
-                        >
-                          Initiate Deployment
-                        </button>
-                      </motion.div>
-                    );
-                  })}
-                </div>
               </section>
 
               {/* What We Build Best — Projects section */}
@@ -861,7 +813,7 @@ export default function App() {
               </section>
             </div>
           </motion.main>
-        ) : (
+        ) : currentPage === 'about' ? (
           <motion.div
             key="about-page"
             initial={{ opacity: 0 }}
@@ -973,11 +925,21 @@ export default function App() {
                   </div>
                 </div>
               </section>
-
               <Accordion05 />
             </div>
           </motion.div>
-        )}
+        ) : currentPage === 'agents' ? (
+          <motion.main
+            key="agents-main"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex-1 w-full relative"
+          >
+            <AgentsPage onOpenInquiry={openInquiryModal} />
+          </motion.main>
+        ) : null}
       </AnimatePresence>
 
       <HoverFooter

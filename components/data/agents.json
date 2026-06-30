@@ -1,0 +1,1478 @@
+[
+  {
+    "id": "academic-anthropologist",
+    "name": "Anthropologist",
+    "description": "Expert in cultural systems, rituals, kinship, belief systems, and ethnographic method \u2014 builds culturally coherent socie...",
+    "division": "academic"
+  },
+  {
+    "id": "academic-geographer",
+    "name": "Geographer",
+    "description": "Expert in physical and human geography, climate systems, cartography, and spatial analysis \u2014 builds geographically coher...",
+    "division": "academic"
+  },
+  {
+    "id": "academic-historian",
+    "name": "Historian",
+    "description": "Expert in historical analysis, periodization, material culture, and historiography \u2014 validates historical coherence and ...",
+    "division": "academic"
+  },
+  {
+    "id": "academic-narratologist",
+    "name": "Narratologist",
+    "description": "Expert in narrative theory, story structure, character arcs, and literary analysis \u2014 grounds advice in established frame...",
+    "division": "academic"
+  },
+  {
+    "id": "academic-psychologist",
+    "name": "Psychologist",
+    "description": "Expert in human behavior, personality theory, motivation, and cognitive patterns \u2014 builds psychologically credible chara...",
+    "division": "academic"
+  },
+  {
+    "id": "design-brand-guardian",
+    "name": "Brand Guardian",
+    "description": "Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic ...",
+    "division": "design"
+  },
+  {
+    "id": "design-image-prompt-engineer",
+    "name": "Image Prompt Engineer",
+    "description": "Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters...",
+    "division": "design"
+  },
+  {
+    "id": "design-inclusive-visuals-specialist",
+    "name": "Inclusive Visuals Specialist",
+    "description": "Representation expert who defeats systemic AI biases to generate culturally accurate, affirming, and non-stereotypical i...",
+    "division": "design"
+  },
+  {
+    "id": "design-persona-walkthrough",
+    "name": "Persona Walkthrough Specialist",
+    "description": "Simulate cognitive walkthroughs of web pages from a defined persona's psychological perspective \u2014 captures emotional rea...",
+    "division": "design"
+  },
+  {
+    "id": "design-ui-designer",
+    "name": "UI Designer",
+    "description": "Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Cre...",
+    "division": "design"
+  },
+  {
+    "id": "design-ux-architect",
+    "name": "UX Architect",
+    "description": "Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implemen...",
+    "division": "design"
+  },
+  {
+    "id": "design-ux-researcher",
+    "name": "UX Researcher",
+    "description": "Expert user experience researcher specializing in user behavior analysis, usability testing, and data-driven design insi...",
+    "division": "design"
+  },
+  {
+    "id": "design-visual-storyteller",
+    "name": "Visual Storyteller",
+    "description": "Expert visual communication specialist focused on creating compelling visual narratives, multimedia content, and brand s...",
+    "division": "design"
+  },
+  {
+    "id": "design-whimsy-injector",
+    "name": "Whimsy Injector",
+    "description": "Expert creative specialist focused on adding personality, delight, and playful elements to brand experiences. Creates me...",
+    "division": "design"
+  },
+  {
+    "id": "engineering-ai-data-remediation-engineer",
+    "name": "AI Data Remediation Engineer",
+    "description": "Specialist in self-healing data pipelines \u2014 uses air-gapped local SLMs and semantic clustering to automatically detect, ...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-ai-engineer",
+    "name": "AI Engineer",
+    "description": "Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production sy...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-autonomous-optimization-architect",
+    "name": "Autonomous Optimization Architect",
+    "description": "Intelligent system governor that continuously shadow-tests APIs for performance while enforcing strict financial and sec...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-backend-architect",
+    "name": "Backend Architect",
+    "description": "Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infra...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-cms-developer",
+    "name": "CMS Developer",
+    "description": "Drupal and WordPress specialist for theme development, custom plugins/modules, content architecture, and code-first CMS ...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-code-reviewer",
+    "name": "Code Reviewer",
+    "description": "Expert code reviewer who provides constructive, actionable feedback focused on correctness, maintainability, security, a...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-codebase-onboarding-engineer",
+    "name": "Codebase Onboarding Engineer",
+    "description": "Expert developer onboarding specialist who helps new engineers understand unfamiliar codebases fast by reading source co...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-data-engineer",
+    "name": "Data Engineer",
+    "description": "Expert data engineer specializing in building reliable data pipelines, lakehouse architectures, and scalable data infras...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-database-optimizer",
+    "name": "Database Optimizer",
+    "description": "Expert database specialist focusing on schema design, query optimization, indexing strategies, and performance tuning fo...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-devops-automator",
+    "name": "DevOps Automator",
+    "description": "Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-drupal-shopping-cart",
+    "name": "Drupal Shopping Cart Engineer",
+    "description": "Expert Drupal e-commerce engineer specializing in Drupal Commerce for product catalog management, payment gateway integr...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-email-intelligence-engineer",
+    "name": "Email Intelligence Engineer",
+    "description": "Expert in extracting structured, reasoning-ready data from raw email threads for AI agents and automation systems",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-embedded-firmware-engineer",
+    "name": "Embedded Firmware Engineer",
+    "description": "Specialist in bare-metal and RTOS firmware - ESP32/ESP-IDF, PlatformIO, Arduino, ARM Cortex-M, STM32 HAL/LL, Nordic nRF5...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-feishu-integration-developer",
+    "name": "Feishu Integration Developer",
+    "description": "Full-stack integration expert specializing in the Feishu (Lark) Open Platform \u2014 proficient in Feishu bots, mini programs...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-filament-optimization-specialist",
+    "name": "Filament Optimization Specialist",
+    "description": "Expert in restructuring and optimizing Filament PHP admin interfaces for maximum usability and efficiency. Focuses on im...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-frontend-developer",
+    "name": "Frontend Developer",
+    "description": "Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and ...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-git-workflow-master",
+    "name": "Git Workflow Master",
+    "description": "Expert in Git workflows, branching strategies, and version control best practices including conventional commits, rebasi...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-incident-response-commander",
+    "name": "Incident Response Commander",
+    "description": "Expert incident commander specializing in production incident management, structured response coordination, post-mortem ...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-it-service-manager",
+    "name": "IT Service Manager",
+    "description": "Expert IT service management specialist using ITIL 4 framework for service catalog design, incident and problem manageme...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-minimal-change-engineer",
+    "name": "Minimal Change Engineer",
+    "description": "Engineering specialist focused on minimum-viable diffs \u2014 fixes only what was asked, refuses scope creep, prefers three s...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-mobile-app-builder",
+    "name": "Mobile App Builder",
+    "description": "Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-multi-agent-systems-architect",
+    "name": "Multi-Agent Systems Architect",
+    "description": "Systems architect specializing in the design, coordination, and governance of multi-agent AI pipelines \u2014 covering topolo...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-orgscript-engineer",
+    "name": "OrgScript Engineer",
+    "description": "Expert in designing, parsing, and implementing OrgScript grammar, AST validation, and business logic definitions.",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-prompt-engineer",
+    "name": "Prompt Engineer",
+    "description": "Specialist in crafting, testing, and systematically optimizing prompts for LLMs \u2014 turning vague instructions into reliab...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-rapid-prototyper",
+    "name": "Rapid Prototyper",
+    "description": "Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-senior-developer",
+    "name": "Senior Developer",
+    "description": "Premium implementation specialist - Masters Laravel/Livewire/FluxUI, advanced CSS, Three.js integration",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-software-architect",
+    "name": "Software Architect",
+    "description": "Expert software architect specializing in system design, domain-driven design, architectural patterns, and technical dec...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-solidity-smart-contract-engineer",
+    "name": "Solidity Smart Contract Engineer",
+    "description": "Expert Solidity developer specializing in EVM smart contract architecture, gas optimization, upgradeable proxy patterns,...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-sre",
+    "name": "SRE (Site Reliability Engineer)",
+    "description": "Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reducti...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-technical-writer",
+    "name": "Technical Writer",
+    "description": "Expert technical writer specializing in developer documentation, API references, README files, and tutorials. Transforms...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-voice-ai-integration-engineer",
+    "name": "Voice AI Integration Engineer",
+    "description": "Expert in building end-to-end speech transcription pipelines using Whisper-style models and cloud ASR services \u2014 from ra...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-wechat-mini-program-developer",
+    "name": "WeChat Mini Program Developer",
+    "description": "Expert WeChat Mini Program developer specializing in \u5c0f\u7a0b\u5e8f development with WXML/WXSS/WXS, WeChat API integration, payment...",
+    "division": "engineering"
+  },
+  {
+    "id": "engineering-wordpress-shopping-cart",
+    "name": "WordPress Shopping Cart Engineer",
+    "description": "Expert WordPress e-commerce engineer specializing in WooCommerce for product catalog management, payment gateway integra...",
+    "division": "engineering"
+  },
+  {
+    "id": "finance-bookkeeper-controller",
+    "name": "Bookkeeper & Controller",
+    "description": "Expert bookkeeper and controller specializing in day-to-day accounting operations, financial reconciliations, month-end ...",
+    "division": "finance"
+  },
+  {
+    "id": "finance-financial-analyst",
+    "name": "Financial Analyst",
+    "description": "Expert financial analyst specializing in financial modeling, forecasting, scenario analysis, and data-driven decision su...",
+    "division": "finance"
+  },
+  {
+    "id": "finance-fpa-analyst",
+    "name": "FP&A Analyst",
+    "description": "Expert Financial Planning & Analysis (FP&A) analyst specializing in budgeting, variance analysis, financial planning, ro...",
+    "division": "finance"
+  },
+  {
+    "id": "finance-investment-researcher",
+    "name": "Investment Researcher",
+    "description": "Expert investment researcher specializing in market research, due diligence, portfolio analysis, and asset valuation. Co...",
+    "division": "finance"
+  },
+  {
+    "id": "finance-tax-strategist",
+    "name": "Tax Strategist",
+    "description": "Expert tax strategist specializing in tax optimization, multi-jurisdictional compliance, transfer pricing, and strategic...",
+    "division": "finance"
+  },
+  {
+    "id": "game-audio-engineer",
+    "name": "Game Audio Engineer",
+    "description": "Interactive audio specialist - Masters FMOD/Wwise integration, adaptive music systems, spatial audio, and audio performa...",
+    "division": "game-development"
+  },
+  {
+    "id": "game-designer",
+    "name": "Game Designer",
+    "description": "Systems and mechanics architect - Masters GDD authorship, player psychology, economy balancing, and gameplay loop design...",
+    "division": "game-development"
+  },
+  {
+    "id": "level-designer",
+    "name": "Level Designer",
+    "description": "Spatial storytelling and flow specialist - Masters layout theory, pacing architecture, encounter design, and environment...",
+    "division": "game-development"
+  },
+  {
+    "id": "narrative-designer",
+    "name": "Narrative Designer",
+    "description": "Story systems and dialogue architect - Masters GDD-aligned narrative design, branching dialogue, lore architecture, and ...",
+    "division": "game-development"
+  },
+  {
+    "id": "technical-artist",
+    "name": "Technical Artist",
+    "description": "Art-to-engine pipeline specialist - Masters shaders, VFX systems, LOD pipelines, performance budgeting, and cross-engine...",
+    "division": "game-development"
+  },
+  {
+    "id": "blender-addon-engineer",
+    "name": "Blender Add-on Engineer",
+    "description": "Blender tooling specialist - Builds Python add-ons, asset validators, exporters, and pipeline automations that turn repe...",
+    "division": "blender"
+  },
+  {
+    "id": "godot-gameplay-scripter",
+    "name": "Godot Gameplay Scripter",
+    "description": "Composition and signal integrity specialist - Masters GDScript 2.0, C# integration, node-based architecture, and type-sa...",
+    "division": "godot"
+  },
+  {
+    "id": "godot-multiplayer-engineer",
+    "name": "Godot Multiplayer Engineer",
+    "description": "Godot 4 networking specialist - Masters the MultiplayerAPI, scene replication, ENet/WebRTC transport, RPCs, and authorit...",
+    "division": "godot"
+  },
+  {
+    "id": "godot-shader-developer",
+    "name": "Godot Shader Developer",
+    "description": "Godot 4 visual effects specialist - Masters the Godot Shading Language (GLSL-like), VisualShader editor, CanvasItem and ...",
+    "division": "godot"
+  },
+  {
+    "id": "roblox-avatar-creator",
+    "name": "Roblox Avatar Creator",
+    "description": "Roblox UGC and avatar pipeline specialist - Masters Roblox's avatar system, UGC item creation, accessory rigging, textur...",
+    "division": "roblox-studio"
+  },
+  {
+    "id": "roblox-experience-designer",
+    "name": "Roblox Experience Designer",
+    "description": "Roblox platform UX and monetization specialist - Masters engagement loop design, DataStore-driven progression, Roblox mo...",
+    "division": "roblox-studio"
+  },
+  {
+    "id": "roblox-systems-scripter",
+    "name": "Roblox Systems Scripter",
+    "description": "Roblox platform engineering specialist - Masters Luau, the client-server security model, RemoteEvents/RemoteFunctions, D...",
+    "division": "roblox-studio"
+  },
+  {
+    "id": "unity-architect",
+    "name": "Unity Architect",
+    "description": "Data-driven modularity specialist - Masters ScriptableObjects, decoupled systems, and single-responsibility component de...",
+    "division": "unity"
+  },
+  {
+    "id": "unity-editor-tool-developer",
+    "name": "Unity Editor Tool Developer",
+    "description": "Unity editor automation specialist - Masters custom EditorWindows, PropertyDrawers, AssetPostprocessors, ScriptedImporte...",
+    "division": "unity"
+  },
+  {
+    "id": "unity-multiplayer-engineer",
+    "name": "Unity Multiplayer Engineer",
+    "description": "Networked gameplay specialist - Masters Netcode for GameObjects, Unity Gaming Services (Relay/Lobby), client-server auth...",
+    "division": "unity"
+  },
+  {
+    "id": "unity-shader-graph-artist",
+    "name": "Unity Shader Graph Artist",
+    "description": "Visual effects and material specialist - Masters Unity Shader Graph, HLSL, URP/HDRP rendering pipelines, and custom pass...",
+    "division": "unity"
+  },
+  {
+    "id": "unreal-multiplayer-architect",
+    "name": "Unreal Multiplayer Architect",
+    "description": "Unreal Engine networking specialist - Masters Actor replication, GameMode/GameState architecture, server-authoritative g...",
+    "division": "unreal-engine"
+  },
+  {
+    "id": "unreal-systems-engineer",
+    "name": "Unreal Systems Engineer",
+    "description": "Performance and hybrid architecture specialist - Masters C++/Blueprint continuum, Nanite geometry, Lumen GI, and Gamepla...",
+    "division": "unreal-engine"
+  },
+  {
+    "id": "unreal-technical-artist",
+    "name": "Unreal Technical Artist",
+    "description": "Unreal Engine visual pipeline specialist - Masters the Material Editor, Niagara VFX, Procedural Content Generation, and ...",
+    "division": "unreal-engine"
+  },
+  {
+    "id": "unreal-world-builder",
+    "name": "Unreal World Builder",
+    "description": "Open-world and environment specialist - Masters UE5 World Partition, Landscape, procedural foliage, HLOD, and large-scal...",
+    "division": "unreal-engine"
+  },
+  {
+    "id": "gis-3d-scene-developer",
+    "name": "3D & Scene Developer",
+    "description": "Web 3D visualization specialist who creates immersive 3D scenes, terrain models, point cloud visualizations, and interac...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-analyst",
+    "name": "GIS Analyst",
+    "description": "Day-to-day GIS operator who creates maps, manages layers, performs spatial queries, and maintains geospatial data integr...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-bim-specialist",
+    "name": "BIM/GIS Specialist",
+    "description": "Integration specialist who bridges Building Information Modeling and Geographic Information Systems \u2014 Revit/IFC data con...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-cartography-designer",
+    "name": "Cartography Designer",
+    "description": "Map aesthetics specialist who designs beautiful, readable, and effective maps \u2014 color theory, typography, label placemen...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-drone-reality-mapping",
+    "name": "Drone/Reality Mapping Specialist",
+    "description": "Photogrammetry and reality capture expert who processes drone imagery into orthomosaics, digital terrain models, point c...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-geoai-ml-engineer",
+    "name": "GeoAI/ML Engineer",
+    "description": "Geospatial machine learning specialist who builds models for feature extraction, object detection, image segmentation, a...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-geoprocessing-specialist",
+    "name": "Geoprocessing Specialist",
+    "description": "ArcPy and Python toolbox expert who automates spatial workflows \u2014 builds .pyt toolboxes, Model Builder processes, batch ...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-qa-engineer",
+    "name": "GIS QA Engineer",
+    "description": "Quality assurance specialist who validates geospatial data integrity \u2014 topology checks, metadata audits, CRS consistency...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-solution-engineer",
+    "name": "Solution Engineer",
+    "description": "Hands-on GIS prototype builder who takes strategy from Technical Consultant and turns it into working demos, proof-of-co...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-spatial-data-engineer",
+    "name": "Spatial Data Engineer",
+    "description": "ETL specialist who transforms messy geospatial data from any source into clean, standardized, production-ready datasets ...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-spatial-data-scientist",
+    "name": "Spatial Data Scientist",
+    "description": "Advanced spatial analytics specialist who applies statistical modeling, spatial econometrics, clustering, and predictive...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-technical-consultant",
+    "name": "Technical Consultant",
+    "description": "Strategic GIS advisor who translates business problems into geospatial solutions \u2014 gap analysis, technology roadmaps, RF...",
+    "division": "gis"
+  },
+  {
+    "id": "gis-web-gis-developer",
+    "name": "Web GIS Developer",
+    "description": "Full-stack web GIS engineer who builds interactive mapping applications \u2014 MapLibre GL JS, ArcGIS JS API, Leaflet, real-t...",
+    "division": "gis"
+  },
+  {
+    "id": "backend-architect-with-memory",
+    "name": "Backend Architect",
+    "description": "Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infra...",
+    "division": "mcp-memory"
+  },
+  {
+    "id": "marketing-aeo-foundations",
+    "name": "AEO Foundations Architect",
+    "description": "Expert in AI Engine Optimization infrastructure \u2014 implements llms.txt, AI-aware robots.txt, token-budgeted content, stru...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-agentic-search-optimizer",
+    "name": "Agentic Search Optimizer",
+    "description": "Expert in WebMCP readiness and agentic task completion \u2014 audits whether AI agents can actually accomplish tasks on your ...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-ai-citation-strategist",
+    "name": "AI Citation Strategist",
+    "description": "Expert in AI recommendation engine optimization (AEO/GEO) \u2014 audits brand visibility across ChatGPT, Claude, Gemini, and ...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-app-store-optimizer",
+    "name": "App Store Optimizer",
+    "description": "Expert app store marketing specialist focused on App Store Optimization (ASO), conversion rate optimization, and app dis...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-baidu-seo-specialist",
+    "name": "Baidu SEO Specialist",
+    "description": "Expert Baidu search optimization specialist focused on Chinese search engine ranking, Baidu ecosystem integration, ICP c...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-bilibili-content-strategist",
+    "name": "Bilibili Content Strategist",
+    "description": "Expert Bilibili marketing specialist focused on UP\u4e3b growth, danmaku culture mastery, B\u7ad9 algorithm optimization, communit...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-book-co-author",
+    "name": "Book Co-Author",
+    "description": "Strategic thought-leadership book collaborator for founders, experts, and operators turning voice notes, fragments, and ...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-carousel-growth-engine",
+    "name": "Carousel Growth Engine",
+    "description": "Autonomous TikTok and Instagram carousel generation specialist. Analyzes any website URL with Playwright, generates vira...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-china-ecommerce-operator",
+    "name": "China E-Commerce Operator",
+    "description": "Expert China e-commerce operations specialist covering Taobao, Tmall, Pinduoduo, and JD ecosystems with deep expertise i...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-china-market-localization-strategist",
+    "name": "China Market Localization Strategist",
+    "description": "Full-stack China market localization expert who transforms real-time trend signals into executable go-to-market strategi...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-content-creator",
+    "name": "Content Creator",
+    "description": "Expert content strategist and creator for multi-platform campaigns. Develops editorial calendars, creates compelling cop...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-cross-border-ecommerce",
+    "name": "Cross-Border E-Commerce Specialist",
+    "description": "Full-funnel cross-border e-commerce strategist covering Amazon, Shopee, Lazada, AliExpress, Temu, and TikTok Shop operat...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-douyin-strategist",
+    "name": "Douyin Strategist",
+    "description": "Short-video marketing expert specializing in the Douyin platform, with deep expertise in recommendation algorithm mechan...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-email-strategist",
+    "name": "Email Marketing Strategist",
+    "description": "Expert email marketing strategist for CRM-driven campaigns, lifecycle automation, segmentation architecture, and deliver...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-global-podcast-strategist",
+    "name": "Global Podcast Strategist",
+    "description": "Expert podcast growth specialist focused on show positioning, audience development, content strategy, and monetisation. ...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-growth-hacker",
+    "name": "Growth Hacker",
+    "description": "Expert growth strategist specializing in rapid user acquisition through data-driven experimentation. Develops viral loop...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-instagram-curator",
+    "name": "Instagram Curator",
+    "description": "Expert Instagram marketing specialist focused on visual storytelling, community building, and multi-format content optim...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-kuaishou-strategist",
+    "name": "Kuaishou Strategist",
+    "description": "Expert Kuaishou marketing strategist specializing in short-video content for China's lower-tier city markets, live comme...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-linkedin-content-creator",
+    "name": "LinkedIn Content Creator",
+    "description": "Expert LinkedIn content strategist focused on thought leadership, personal brand building, and high-engagement professio...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-livestream-commerce-coach",
+    "name": "Livestream Commerce Coach",
+    "description": "Veteran livestream e-commerce coach specializing in host training and live room operations across Douyin, Kuaishou, Taob...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-multi-platform-publisher",
+    "name": "Multi-Platform Publisher",
+    "description": "Expert orchestrator for one-click Chinese blog publishing. Routes a single article to \u77e5\u4e4e / \u5c0f\u7ea2\u4e66 / CSDN / B\u7ad9 / \u516c\u4f17\u53f7 / \u6398\u91d1 vi...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-podcast-strategist",
+    "name": "Podcast Strategist",
+    "description": "Content strategy and operations expert for the Chinese podcast market, with deep expertise in Xiaoyuzhou, Ximalaya, and ...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-pr-communications-manager",
+    "name": "PR & Communications Manager",
+    "description": "Strategic public relations and communications specialist for media relations, press releases, crisis communications, exe...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-private-domain-operator",
+    "name": "Private Domain Operator",
+    "description": "Expert in building enterprise WeChat (WeCom) private domain ecosystems, with deep expertise in SCRM systems, segmented c...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-reddit-community-builder",
+    "name": "Reddit Community Builder",
+    "description": "Expert Reddit marketing specialist focused on authentic community engagement, value-driven content creation, and long-te...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-seo-specialist",
+    "name": "SEO Specialist",
+    "description": "Expert search engine optimization strategist specializing in technical SEO, content optimization, link authority buildin...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-short-video-editing-coach",
+    "name": "Short-Video Editing Coach",
+    "description": "Hands-on short-video editing coach covering the full post-production pipeline, with mastery of CapCut Pro, Premiere Pro,...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-social-media-strategist",
+    "name": "Social Media Strategist",
+    "description": "Expert social media strategist for LinkedIn, Twitter, and professional platforms. Creates cross-platform campaigns, buil...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-tiktok-strategist",
+    "name": "TikTok Strategist",
+    "description": "Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Ma...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-twitter-engager",
+    "name": "Twitter Engager",
+    "description": "Expert Twitter marketing specialist focused on real-time engagement, thought leadership building, and community-driven g...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-video-optimization-specialist",
+    "name": "Video Optimization Specialist",
+    "description": "Video marketing strategist specializing in YouTube algorithm optimization, audience retention, chaptering, thumbnail con...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-wechat-official-account",
+    "name": "WeChat Official Account Manager",
+    "description": "Expert WeChat Official Account (OA) strategist specializing in content marketing, subscriber engagement, and conversion ...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-weibo-strategist",
+    "name": "Weibo Strategist",
+    "description": "Full-spectrum operations expert for Sina Weibo, with deep expertise in trending topic mechanics, Super Topic community m...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-x-twitter-intelligence-analyst",
+    "name": "X/Twitter Intelligence Analyst",
+    "description": "Social intelligence specialist for X/Twitter research, trend detection, account monitoring, and evidence-backed audience...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-xiaohongshu-specialist",
+    "name": "Xiaohongshu Specialist",
+    "description": "Expert Xiaohongshu marketing specialist focused on lifestyle content, trend-driven strategies, and authentic community e...",
+    "division": "marketing"
+  },
+  {
+    "id": "marketing-zhihu-strategist",
+    "name": "Zhihu Strategist",
+    "description": "Expert Zhihu marketing specialist focused on thought leadership, community credibility, and knowledge-driven engagement....",
+    "division": "marketing"
+  },
+  {
+    "id": "paid-media-auditor",
+    "name": "Paid Media Auditor",
+    "description": "Comprehensive paid media auditor who systematically evaluates Google Ads, Microsoft Ads, and Meta accounts across 200+ c...",
+    "division": "paid-media"
+  },
+  {
+    "id": "paid-media-creative-strategist",
+    "name": "Ad Creative Strategist",
+    "description": "Paid media creative specialist focused on ad copywriting, RSA optimization, asset group design, and creative testing fra...",
+    "division": "paid-media"
+  },
+  {
+    "id": "paid-media-paid-social-strategist",
+    "name": "Paid Social Strategist",
+    "description": "Cross-platform paid social advertising specialist covering Meta (Facebook/Instagram), LinkedIn, TikTok, Pinterest, X, an...",
+    "division": "paid-media"
+  },
+  {
+    "id": "paid-media-ppc-strategist",
+    "name": "PPC Campaign Strategist",
+    "description": "Senior paid media strategist specializing in large-scale search, shopping, and performance max campaign architecture acr...",
+    "division": "paid-media"
+  },
+  {
+    "id": "paid-media-programmatic-buyer",
+    "name": "Programmatic & Display Buyer",
+    "description": "Display advertising and programmatic media buying specialist covering managed placements, Google Display Network, DV360,...",
+    "division": "paid-media"
+  },
+  {
+    "id": "paid-media-search-query-analyst",
+    "name": "Search Query Analyst",
+    "description": "Specialist in search term analysis, negative keyword architecture, and query-to-intent mapping. Turns raw search query d...",
+    "division": "paid-media"
+  },
+  {
+    "id": "paid-media-tracking-specialist",
+    "name": "Tracking & Measurement Specialist",
+    "description": "Expert in conversion tracking architecture, tag management, and attribution modeling across Google Tag Manager, GA4, Goo...",
+    "division": "paid-media"
+  },
+  {
+    "id": "product-behavioral-nudge-engine",
+    "name": "Behavioral Nudge Engine",
+    "description": "Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and su...",
+    "division": "product"
+  },
+  {
+    "id": "product-feedback-synthesizer",
+    "name": "Feedback Synthesizer",
+    "description": "Expert in collecting, analyzing, and synthesizing user feedback from multiple channels to extract actionable product ins...",
+    "division": "product"
+  },
+  {
+    "id": "product-manager",
+    "name": "Product Manager",
+    "description": "Holistic product leader who owns the full product lifecycle \u2014 from discovery and strategy through roadmap, stakeholder a...",
+    "division": "product"
+  },
+  {
+    "id": "product-sprint-prioritizer",
+    "name": "Sprint Prioritizer",
+    "description": "Expert product manager specializing in agile sprint planning, feature prioritization, and resource allocation. Focused o...",
+    "division": "product"
+  },
+  {
+    "id": "product-trend-researcher",
+    "name": "Trend Researcher",
+    "description": "Expert market intelligence analyst specializing in identifying emerging trends, competitive analysis, and opportunity as...",
+    "division": "product"
+  },
+  {
+    "id": "project-management-experiment-tracker",
+    "name": "Experiment Tracker",
+    "description": "Expert project manager specializing in experiment design, execution tracking, and data-driven decision making. Focused o...",
+    "division": "project-management"
+  },
+  {
+    "id": "project-management-jira-workflow-steward",
+    "name": "Jira Workflow Steward",
+    "description": "Expert delivery operations specialist who enforces Jira-linked Git workflows, traceable commits, structured pull request...",
+    "division": "project-management"
+  },
+  {
+    "id": "project-management-meeting-notes-specialist",
+    "name": "Meeting Notes Specialist",
+    "description": "Extract structured decisions, action items, and open questions from meeting transcripts or rough notes into a clean 4-se...",
+    "division": "project-management"
+  },
+  {
+    "id": "project-management-project-shepherd",
+    "name": "Project Shepherd",
+    "description": "Expert project manager specializing in cross-functional project coordination, timeline management, and stakeholder align...",
+    "division": "project-management"
+  },
+  {
+    "id": "project-management-studio-operations",
+    "name": "Studio Operations",
+    "description": "Expert operations manager specializing in day-to-day studio efficiency, process optimization, and resource coordination....",
+    "division": "project-management"
+  },
+  {
+    "id": "project-management-studio-producer",
+    "name": "Studio Producer",
+    "description": "Senior strategic leader specializing in high-level creative and technical project orchestration, resource allocation, an...",
+    "division": "project-management"
+  },
+  {
+    "id": "project-manager-senior",
+    "name": "Senior Project Manager",
+    "description": "Converts specs to tasks and remembers previous projects. Focused on realistic scope, no background processes, exact spec...",
+    "division": "project-management"
+  },
+  {
+    "id": "sales-account-strategist",
+    "name": "Account Strategist",
+    "description": "Expert post-sale account strategist specializing in land-and-expand execution, stakeholder mapping, QBR facilitation, an...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-coach",
+    "name": "Sales Coach",
+    "description": "Expert sales coaching specialist focused on rep development, pipeline review facilitation, call coaching, deal strategy,...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-deal-strategist",
+    "name": "Deal Strategist",
+    "description": "Senior deal strategist specializing in MEDDPICC qualification, competitive positioning, and win planning for complex B2B...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-discovery-coach",
+    "name": "Discovery Coach",
+    "description": "Coaches sales teams on elite discovery methodology \u2014 question design, current-state mapping, gap quantification, and cal...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-engineer",
+    "name": "Sales Engineer",
+    "description": "Senior pre-sales engineer specializing in technical discovery, demo engineering, POC scoping, competitive battlecards, a...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-offer-lead-gen-strategist",
+    "name": "Offer & Lead Gen Strategist",
+    "description": "Top-of-funnel architect who designs irresistible offers and lead magnets that attract qualified buyers at scale. Special...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-outbound-strategist",
+    "name": "Outbound Strategist",
+    "description": "Signal-based outbound specialist who designs multi-channel prospecting sequences, defines ICPs, and builds pipeline thro...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-pipeline-analyst",
+    "name": "Pipeline Analyst",
+    "description": "Revenue operations analyst specializing in pipeline health diagnostics, deal velocity analysis, forecast accuracy, and d...",
+    "division": "sales"
+  },
+  {
+    "id": "sales-proposal-strategist",
+    "name": "Proposal Strategist",
+    "description": "Strategic proposal architect who transforms RFPs and sales opportunities into compelling win narratives. Specializes in ...",
+    "division": "sales"
+  },
+  {
+    "id": "security-appsec-engineer",
+    "name": "Application Security Engineer",
+    "description": "AppSec specialist who secures the software development lifecycle through threat modeling, secure code review, SAST/DAST ...",
+    "division": "security"
+  },
+  {
+    "id": "security-architect",
+    "name": "Security Architect",
+    "description": "Expert security architect specializing in threat modeling, secure-by-design architecture, trust-boundary analysis, defen...",
+    "division": "security"
+  },
+  {
+    "id": "security-blockchain-security-auditor",
+    "name": "Blockchain Security Auditor",
+    "description": "Expert smart contract security auditor specializing in vulnerability detection, formal verification, exploit analysis, a...",
+    "division": "security"
+  },
+  {
+    "id": "security-cloud-security-architect",
+    "name": "Cloud Security Architect",
+    "description": "Cloud-native security specialist designing zero trust architectures, implementing defense-in-depth across AWS, Azure, an...",
+    "division": "security"
+  },
+  {
+    "id": "security-compliance-auditor",
+    "name": "Compliance Auditor",
+    "description": "Expert technical compliance auditor specializing in SOC 2, ISO 27001, HIPAA, and PCI-DSS audits \u2014 from readiness assessm...",
+    "division": "security"
+  },
+  {
+    "id": "security-incident-responder",
+    "name": "Incident Responder",
+    "description": "Digital forensics and incident response specialist who leads breach investigations, contains active threats, coordinates...",
+    "division": "security"
+  },
+  {
+    "id": "security-penetration-tester",
+    "name": "Penetration Tester",
+    "description": "Offensive security specialist conducting authorized penetration tests, red team operations, and vulnerability assessment...",
+    "division": "security"
+  },
+  {
+    "id": "security-senior-secops",
+    "name": "Senior SecOps Engineer",
+    "description": "Defensive application security specialist who scans every code submission for secrets and sensitive data exposure before...",
+    "division": "security"
+  },
+  {
+    "id": "security-threat-detection-engineer",
+    "name": "Threat Detection Engineer",
+    "description": "Expert detection engineer specializing in SIEM rule development, MITRE ATT&CK coverage mapping, threat hunting, alert tu...",
+    "division": "security"
+  },
+  {
+    "id": "security-threat-intelligence-analyst",
+    "name": "Threat Intelligence Analyst",
+    "description": "Cyber threat intelligence specialist who tracks adversary groups, maps attack campaigns to MITRE ATT&CK, produces action...",
+    "division": "security"
+  },
+  {
+    "id": "macos-spatial-metal-engineer",
+    "name": "macOS Spatial/Metal Engineer",
+    "description": "Native Swift and Metal specialist building high-performance 3D rendering systems and spatial computing experiences for m...",
+    "division": "spatial-computing"
+  },
+  {
+    "id": "terminal-integration-specialist",
+    "name": "Terminal Integration Specialist",
+    "description": "Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications",
+    "division": "spatial-computing"
+  },
+  {
+    "id": "visionos-spatial-engineer",
+    "name": "visionOS Spatial Engineer",
+    "description": "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation",
+    "division": "spatial-computing"
+  },
+  {
+    "id": "xr-cockpit-interaction-specialist",
+    "name": "XR Cockpit Interaction Specialist",
+    "description": "Specialist in designing and developing immersive cockpit-based control systems for XR environments",
+    "division": "spatial-computing"
+  },
+  {
+    "id": "xr-immersive-developer",
+    "name": "XR Immersive Developer",
+    "description": "Expert WebXR and immersive technology developer with specialization in browser-based AR/VR/XR applications",
+    "division": "spatial-computing"
+  },
+  {
+    "id": "xr-interface-architect",
+    "name": "XR Interface Architect",
+    "description": "Spatial interaction designer and interface strategist for immersive AR/VR/XR environments",
+    "division": "spatial-computing"
+  },
+  {
+    "id": "accounts-payable-agent",
+    "name": "Accounts Payable Agent",
+    "description": "Autonomous payment processing specialist that executes vendor payments, contractor invoices, and recurring bills across ...",
+    "division": "specialized"
+  },
+  {
+    "id": "agentic-identity-trust",
+    "name": "Agentic Identity & Trust Architect",
+    "description": "Designs identity, authentication, and trust verification systems for autonomous AI agents operating in multi-agent envir...",
+    "division": "specialized"
+  },
+  {
+    "id": "agents-orchestrator",
+    "name": "Agents Orchestrator",
+    "description": "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.",
+    "division": "specialized"
+  },
+  {
+    "id": "automation-governance-architect",
+    "name": "Automation Governance Architect",
+    "description": "Governance-first architect for business automations (n8n-first) who audits value, risk, and maintainability before imple...",
+    "division": "specialized"
+  },
+  {
+    "id": "business-strategist",
+    "name": "Business Strategist",
+    "description": "Senior management consulting specialist for competitive analysis, market entry strategy, business model design, growth p...",
+    "division": "specialized"
+  },
+  {
+    "id": "change-management-consultant",
+    "name": "Change Management Consultant",
+    "description": "Expert change management specialist using ADKAR, Kotter, and Prosci frameworks to guide organizations through technology...",
+    "division": "specialized"
+  },
+  {
+    "id": "chief-financial-officer",
+    "name": "Chief Financial Officer",
+    "description": "Strategic finance executive who governs capital allocation, treasury operations, financial planning, M&A finance, invest...",
+    "division": "specialized"
+  },
+  {
+    "id": "corporate-training-designer",
+    "name": "Corporate Training Designer",
+    "description": "Expert in enterprise training system design and curriculum development \u2014 proficient in training needs analysis, instruct...",
+    "division": "specialized"
+  },
+  {
+    "id": "customer-service",
+    "name": "Customer Service",
+    "description": "Friendly, professional customer service specialist for any industry \u2014 handling inquiries, complaints, account support, F...",
+    "division": "specialized"
+  },
+  {
+    "id": "customer-success-manager",
+    "name": "Customer Success Manager",
+    "description": "Strategic customer success specialist for onboarding, health scoring, QBR facilitation, churn prevention, expansion iden...",
+    "division": "specialized"
+  },
+  {
+    "id": "data-consolidation-agent",
+    "name": "Data Consolidation Agent",
+    "description": "AI agent that consolidates extracted sales data into live reporting dashboards with territory, rep, and pipeline summari...",
+    "division": "specialized"
+  },
+  {
+    "id": "data-privacy-officer",
+    "name": "Data Privacy Officer",
+    "description": "Corporate data privacy specialist and DPO who builds GDPR, CCPA, and global privacy compliance programs \u2014 covering data ...",
+    "division": "specialized"
+  },
+  {
+    "id": "esg-sustainability-officer",
+    "name": "ESG & Sustainability Officer",
+    "description": "Corporate sustainability strategist and ESG reporting specialist who builds environmental, social, and governance progra...",
+    "division": "specialized"
+  },
+  {
+    "id": "government-digital-presales-consultant",
+    "name": "Government Digital Presales Consultant",
+    "description": "Presales expert for China's government digital transformation market (ToG), proficient in policy interpretation, solutio...",
+    "division": "specialized"
+  },
+  {
+    "id": "grant-writer",
+    "name": "Grant Writer",
+    "description": "Expert grant writing specialist for nonprofits, research institutions, and social enterprises \u2014 covering prospect resear...",
+    "division": "specialized"
+  },
+  {
+    "id": "healthcare-customer-service",
+    "name": "Healthcare Customer Service",
+    "description": "Empathetic healthcare customer service specialist for patient support, billing inquiries, appointment management, insura...",
+    "division": "specialized"
+  },
+  {
+    "id": "healthcare-marketing-compliance",
+    "name": "Healthcare Marketing Compliance Specialist",
+    "description": "Expert in healthcare marketing compliance in China, proficient in the Advertising Law, Medical Advertisement Management ...",
+    "division": "specialized"
+  },
+  {
+    "id": "hospitality-guest-services",
+    "name": "Hospitality Guest Services",
+    "description": "Comprehensive hospitality guest services specialist for hotels, resorts, restaurants, and event venues \u2014 covering reserv...",
+    "division": "specialized"
+  },
+  {
+    "id": "hr-onboarding",
+    "name": "HR Onboarding",
+    "description": "Comprehensive HR onboarding specialist for employee orientation, documentation management, compliance tracking, benefits...",
+    "division": "specialized"
+  },
+  {
+    "id": "identity-graph-operator",
+    "name": "Identity Graph Operator",
+    "description": "Operates a shared identity graph that multiple AI agents resolve against. Ensures every agent in a multi-agent system ge...",
+    "division": "specialized"
+  },
+  {
+    "id": "language-translator",
+    "name": "Language Translator",
+    "description": "Real-time Spanish \u2194 English translation specialist with cultural context, regional dialect awareness, travel phrase guid...",
+    "division": "specialized"
+  },
+  {
+    "id": "legal-billing-time-tracking",
+    "name": "Legal Billing & Time Tracking",
+    "description": "Comprehensive legal billing and time tracking specialist for accurate time capture, invoice generation, billing narrativ...",
+    "division": "specialized"
+  },
+  {
+    "id": "legal-client-intake",
+    "name": "Legal Client Intake",
+    "description": "Comprehensive legal client intake specialist for qualifying prospects, collecting case information, scheduling consultat...",
+    "division": "specialized"
+  },
+  {
+    "id": "legal-document-review",
+    "name": "Legal Document Review",
+    "description": "Comprehensive legal document review specialist for contracts, litigation documents, and real estate agreements \u2014 summari...",
+    "division": "specialized"
+  },
+  {
+    "id": "loan-officer-assistant",
+    "name": "Loan Officer Assistant",
+    "description": "Comprehensive loan officer assistant for mortgage and lending professionals \u2014 covering borrower intake, pre-qualificatio...",
+    "division": "specialized"
+  },
+  {
+    "id": "lsp-index-engineer",
+    "name": "LSP/Index Engineer",
+    "description": "Language Server Protocol specialist building unified code intelligence systems through LSP client orchestration and sema...",
+    "division": "specialized"
+  },
+  {
+    "id": "ma-integration-manager",
+    "name": "M&A Integration Manager",
+    "description": "Mergers and acquisitions integration specialist who designs and executes post-merger integration programs \u2014 covering Day...",
+    "division": "specialized"
+  },
+  {
+    "id": "medical-billing-coding-specialist",
+    "name": "Medical Billing & Coding Specialist",
+    "description": "Expert medical billing and coding specialist for ICD-10-CM/PCS, CPT, and HCPCS coding, claim submission, denial manageme...",
+    "division": "specialized"
+  },
+  {
+    "id": "operations-manager",
+    "name": "Operations Manager",
+    "description": "Business operations specialist who applies Lean, Six Sigma, and systems thinking to process mapping, capacity planning, ...",
+    "division": "specialized"
+  },
+  {
+    "id": "organizational-psychologist",
+    "name": "Organizational Psychologist",
+    "description": "Applied organizational psychologist who diagnoses team dynamics, psychological safety, burnout risk, and culture health ...",
+    "division": "specialized"
+  },
+  {
+    "id": "personal-growth-mentor",
+    "name": "Personal Growth Mentor",
+    "description": "Cross-domain personal development mentor for goal clarity, habit design, strategic decisions, and accountability without...",
+    "division": "specialized"
+  },
+  {
+    "id": "real-estate-buyer-seller",
+    "name": "Real Estate Buyer & Seller",
+    "description": "Comprehensive real estate agent assistant for buyer representation, seller representation, listing management, offer neg...",
+    "division": "specialized"
+  },
+  {
+    "id": "recruitment-specialist",
+    "name": "Recruitment Specialist",
+    "description": "Expert recruitment operations and talent acquisition specialist \u2014 skilled in China's major hiring platforms, talent asse...",
+    "division": "specialized"
+  },
+  {
+    "id": "report-distribution-agent",
+    "name": "Report Distribution Agent",
+    "description": "AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters",
+    "division": "specialized"
+  },
+  {
+    "id": "retail-customer-returns",
+    "name": "Retail Customer Returns",
+    "description": "Comprehensive retail customer returns specialist for processing returns, exchanges, and refunds across in-store, online,...",
+    "division": "specialized"
+  },
+  {
+    "id": "sales-data-extraction-agent",
+    "name": "Sales Data Extraction Agent",
+    "description": "AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live r...",
+    "division": "specialized"
+  },
+  {
+    "id": "sales-outreach",
+    "name": "Sales Outreach",
+    "description": "Consultative B2B sales outreach specialist for cold prospecting, lead follow-up, objection handling, proposal writing, a...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-chief-of-staff",
+    "name": "Chief of Staff",
+    "description": "Master coordinator for founders and executives \u2014 filters noise, owns processes, enforces consistency, routes decisions, ...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-civil-engineer",
+    "name": "Civil Engineer",
+    "description": "Expert civil and structural engineer with global standards coverage \u2014 Eurocode, DIN, ACI, AISC, ASCE, AS/NZS, CSA, GB, I...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-cultural-intelligence-strategist",
+    "name": "Cultural Intelligence Strategist",
+    "description": "CQ specialist that detects invisible exclusion, researches global context, and ensures software resonates authentically ...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-developer-advocate",
+    "name": "Developer Advocate",
+    "description": "Expert developer advocate specializing in building developer communities, creating compelling technical content, optimiz...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-document-generator",
+    "name": "Document Generator",
+    "description": "Expert document creation specialist who generates professional PDF, PPTX, DOCX, and XLSX files using code-based approach...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-french-consulting-market",
+    "name": "French Consulting Market Navigator",
+    "description": "Navigate the French ESN/SI freelance ecosystem \u2014 margin models, platform mechanics (Malt, collective.work), portage sala...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-korean-business-navigator",
+    "name": "Korean Business Navigator",
+    "description": "Korean business culture for foreign professionals \u2014 \ud488\uc758 decision process, nunchi reading, KakaoTalk business etiquette, h...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-mcp-builder",
+    "name": "MCP Builder",
+    "description": "Expert Model Context Protocol developer who designs, builds, and tests MCP servers that extend AI agent capabilities wit...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-model-qa",
+    "name": "Model QA Specialist",
+    "description": "Independent model QA expert who audits ML and statistical models end-to-end - from documentation review and data reconst...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-pricing-analyst",
+    "name": "Pricing Analyst",
+    "description": "Specialized pricing analyst who develops optimal pricing models through market research, competitor analysis, cost struc...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-salesforce-architect",
+    "name": "Salesforce Architect",
+    "description": "Solution architecture for Salesforce platform \u2014 multi-cloud design, integration patterns, governor limits, deployment st...",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-strategy-duel-agent",
+    "name": "Strategy Duel Agent",
+    "description": "Conducts live strategy duels using game theory and the 36 Chinese stratagems",
+    "division": "specialized"
+  },
+  {
+    "id": "specialized-workflow-architect",
+    "name": "Workflow Architect",
+    "description": "Workflow design specialist who maps complete workflow trees for every system, user journey, and agent interaction \u2014 cove...",
+    "division": "specialized"
+  },
+  {
+    "id": "study-abroad-advisor",
+    "name": "Study Abroad Advisor",
+    "description": "Full-spectrum study abroad planning expert covering the US, UK, Canada, Australia, Europe, Hong Kong, and Singapore \u2014 pr...",
+    "division": "specialized"
+  },
+  {
+    "id": "supply-chain-strategist",
+    "name": "Supply Chain Strategist",
+    "description": "Expert supply chain management and procurement strategy specialist \u2014 skilled in supplier development, strategic sourcing...",
+    "division": "specialized"
+  },
+  {
+    "id": "zk-steward",
+    "name": "ZK Steward",
+    "description": "Knowledge-base steward in the spirit of Niklas Luhmann's Zettelkasten. Default perspective: Luhmann; switches to domain ...",
+    "division": "specialized"
+  },
+  {
+    "id": "agent-activation-prompts",
+    "name": "Agent Activation Prompts",
+    "description": "```",
+    "division": "coordination"
+  },
+  {
+    "id": "handoff-templates",
+    "name": "Handoff Templates",
+    "description": "----|-------|",
+    "division": "coordination"
+  },
+  {
+    "id": "phase-0-discovery",
+    "name": "Phase 0 Discovery",
+    "description": "|-----------|----------------|--------|",
+    "division": "playbooks"
+  },
+  {
+    "id": "phase-1-strategy",
+    "name": "Phase 1 Strategy",
+    "description": "|-----------|----------------|--------|",
+    "division": "playbooks"
+  },
+  {
+    "id": "phase-2-foundation",
+    "name": "Phase 2 Foundation",
+    "description": "|-----------|----------------|--------|",
+    "division": "playbooks"
+  },
+  {
+    "id": "phase-3-build",
+    "name": "Phase 3 Build",
+    "description": "-----------|--------------|-------------|----------|",
+    "division": "playbooks"
+  },
+  {
+    "id": "phase-4-hardening",
+    "name": "Phase 4 Hardening",
+    "description": "|-----------|-----------|-------------------|",
+    "division": "playbooks"
+  },
+  {
+    "id": "phase-5-launch",
+    "name": "Phase 5 Launch",
+    "description": "|-----------|----------------|--------|",
+    "division": "playbooks"
+  },
+  {
+    "id": "phase-6-operate",
+    "name": "Phase 6 Operate",
+    "description": "----|---------------|-----|",
+    "division": "playbooks"
+  },
+  {
+    "id": "scenario-enterprise-feature",
+    "name": "Scenario Enterprise Feature",
+    "description": "----|------|",
+    "division": "runbooks"
+  },
+  {
+    "id": "scenario-incident-response",
+    "name": "Scenario Incident Response",
+    "description": "----|-----------|----------|--------------|",
+    "division": "runbooks"
+  },
+  {
+    "id": "scenario-marketing-campaign",
+    "name": "Scenario Marketing Campaign",
+    "description": "----|------|",
+    "division": "runbooks"
+  },
+  {
+    "id": "scenario-startup-mvp",
+    "name": "Scenario Startup Mvp",
+    "description": "----|------|",
+    "division": "runbooks"
+  },
+  {
+    "id": "support-analytics-reporter",
+    "name": "Analytics Reporter",
+    "description": "Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical an...",
+    "division": "support"
+  },
+  {
+    "id": "support-executive-summary-generator",
+    "name": "Executive Summary Generator",
+    "description": "Consultant-grade AI specialist trained to think and communicate like a senior strategy consultant. Transforms complex bu...",
+    "division": "support"
+  },
+  {
+    "id": "support-finance-tracker",
+    "name": "Finance Tracker",
+    "description": "Expert financial analyst and controller specializing in financial planning, budget management, and business performance ...",
+    "division": "support"
+  },
+  {
+    "id": "support-infrastructure-maintainer",
+    "name": "Infrastructure Maintainer",
+    "description": "Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations manag...",
+    "division": "support"
+  },
+  {
+    "id": "support-legal-compliance-checker",
+    "name": "Legal Compliance Checker",
+    "description": "Expert legal and compliance specialist ensuring business operations, data handling, and content creation comply with rel...",
+    "division": "support"
+  },
+  {
+    "id": "support-support-responder",
+    "name": "Support Responder",
+    "description": "Expert customer support specialist delivering exceptional customer service, issue resolution, and user experience optimi...",
+    "division": "support"
+  },
+  {
+    "id": "testing-accessibility-auditor",
+    "name": "Accessibility Auditor",
+    "description": "Expert accessibility specialist who audits interfaces against WCAG standards, tests with assistive technologies, and ens...",
+    "division": "testing"
+  },
+  {
+    "id": "testing-api-tester",
+    "name": "API Tester",
+    "description": "Expert API testing specialist focused on comprehensive API validation, performance testing, and quality assurance across...",
+    "division": "testing"
+  },
+  {
+    "id": "testing-evidence-collector",
+    "name": "Evidence Collector",
+    "description": "Screenshot-obsessed, fantasy-allergic QA specialist - Default to finding 3-5 issues, requires visual proof for everythin...",
+    "division": "testing"
+  },
+  {
+    "id": "testing-performance-benchmarker",
+    "name": "Performance Benchmarker",
+    "description": "Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance...",
+    "division": "testing"
+  },
+  {
+    "id": "testing-reality-checker",
+    "name": "Reality Checker",
+    "description": "Stops fantasy approvals, evidence-based certification - Default to \"NEEDS WORK\", requires overwhelming proof for product...",
+    "division": "testing"
+  },
+  {
+    "id": "testing-test-results-analyzer",
+    "name": "Test Results Analyzer",
+    "description": "Expert test analysis specialist focused on comprehensive test result evaluation, quality metrics analysis, and actionabl...",
+    "division": "testing"
+  },
+  {
+    "id": "testing-tool-evaluator",
+    "name": "Tool Evaluator",
+    "description": "Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms ...",
+    "division": "testing"
+  },
+  {
+    "id": "testing-workflow-optimizer",
+    "name": "Workflow Optimizer",
+    "description": "Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business fun...",
+    "division": "testing"
+  }
+]
