@@ -5,6 +5,7 @@ import re
 
 SOURCE_DIR = r"d:\Devscosmic.AI\DevAI-Agency\tmp_agency_agents"
 OUT_FILE = r"d:\Devscosmic.AI\DevAI-Agency\components\data\agents.json"
+OUT_DIVISIONS = r"d:\Devscosmic.AI\DevAI-Agency\components\data\divisions.json"
 
 def parse_frontmatter(content):
     frontmatter = {}
@@ -61,7 +62,11 @@ def main():
     with open(OUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(agents, f, indent=2)
         
-    print(f"Generated {len(agents)} agents in {OUT_FILE}")
+    # Copy divisions.json as well
+    import shutil
+    shutil.copy2(os.path.join(SOURCE_DIR, 'divisions.json'), OUT_DIVISIONS)
+        
+    print(f"Generated {len(agents)} agents in {OUT_FILE} and copied divisions.json")
 
 if __name__ == "__main__":
     main()

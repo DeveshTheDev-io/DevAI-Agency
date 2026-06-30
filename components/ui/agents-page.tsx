@@ -4,7 +4,7 @@ import { SpotlightHover } from './spotlight-hover';
 import { BackgroundPaths } from './background-paths';
 import { cn } from '../../lib/utils';
 import agentsData from '../data/agents.json';
-import divisionsData from '../../tmp_agency_agents/divisions.json';
+import divisionsData from '../data/divisions.json';
 
 // Import all possible icons from lucide-react (or a subset we need)
 import * as LucideIcons from 'lucide-react';
