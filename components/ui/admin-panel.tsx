@@ -734,7 +734,7 @@ export function AdminPanel({ isOpen, onClose }: AdminPanelProps) {
             exit={{ opacity: 0, scale: 0.97, y: 10 }}
             className="relative w-full max-w-7xl h-[92vh] bg-[#050505] border border-white/[0.08] rounded-[2.5rem] overflow-hidden shadow-[0_0_120px_rgba(0,0,0,0.8)] z-[50001] flex flex-col"
           >
-            {!isAuthorized ? <LoginScreen /> : (
+            {!isAuthorized ? LoginScreen() : (
               <>
                 {/* Top bar */}
                 <div className="px-8 py-5 border-b border-white/[0.06] flex items-center justify-between shrink-0">
@@ -794,13 +794,13 @@ export function AdminPanel({ isOpen, onClose }: AdminPanelProps) {
                       </div>
                     ) : (
                       <>
-                        {activeTab === 'overview' && <OverviewTab />}
-                        {activeTab === 'leads' && <LeadsTab />}
-                        {activeTab === 'users' && <UsersTab />}
-                        {activeTab === 'packages' && <PackagesTab />}
-                        {activeTab === 'courses' && <CoursesTab />}
-                        {activeTab === 'agents' && <AgentsTab />}
-                        {activeTab === 'settings' && <SettingsTab />}
+                        {activeTab === 'overview' && OverviewTab()}
+                        {activeTab === 'leads' && LeadsTab()}
+                        {activeTab === 'users' && UsersTab()}
+                        {activeTab === 'packages' && PackagesTab()}
+                        {activeTab === 'courses' && CoursesTab()}
+                        {activeTab === 'agents' && AgentsTab()}
+                        {activeTab === 'settings' && SettingsTab()}
                       </>
                     )}
                   </div>
