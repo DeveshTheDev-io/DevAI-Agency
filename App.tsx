@@ -34,7 +34,9 @@ import {
   Star,
   Shield,
   GraduationCap,
-  Layout
+  Layout,
+  GlassWater,
+  ShoppingBag
 } from 'lucide-react';
 
 const ICON_MAP: any = {
@@ -260,7 +262,29 @@ const CODING_PROJECTS = [
     features: ["Custom Admin Panel", "Dynamic Callback Process", "Polished 3D Animations", "Interactive Modals"],
     icon: Map,
     accentColor: "from-purple-500/20 to-purple-500/0",
-    link: "https://www.terraroamholidays.com/"
+    link: "https://terra-roam-holidays.vercel.app/"
+  },
+  {
+    id: "pegmatch",
+    name: "Peg Match Drink",
+    status: "Live",
+    statusColor: "emerald",
+    description: "Interactive beverage & peg matching web application crafted with high-performance UI and instant matching logic.",
+    features: ["Smart Peg Calculation", "Interactive Drink Matching", "Responsive Mobile-First UI", "Fast Edge Deployment"],
+    icon: GlassWater,
+    accentColor: "from-amber-500/20 to-amber-500/0",
+    link: "https://peg-match-drink.vercel.app/"
+  },
+  {
+    id: "freshogo",
+    name: "FRESHOGO",
+    status: "Live",
+    statusColor: "emerald",
+    description: "Modern grocery & fresh produce platform built for rapid product browsing and seamless online checkout.",
+    features: ["Fresh Produce Catalog", "Fast Localized Ordering", "Real-Time Order Tracking", "Optimized Mobile Checkout"],
+    icon: ShoppingBag,
+    accentColor: "from-emerald-500/20 to-emerald-500/0",
+    link: "https://freshogo-in.vercel.app/"
   },
   {
     id: "custom-ai",
@@ -270,7 +294,7 @@ const CODING_PROJECTS = [
     description: "Custom built Python backend systems using FastAPI and Deep Learning integrations.",
     features: ["TensorFlow & Keras Models", "Hugging Face APIs", "Scalable Architecture", "NumPy & Pandas Processing"],
     icon: Code2,
-    accentColor: "from-emerald-500/20 to-emerald-500/0",
+    accentColor: "from-blue-500/20 to-blue-500/0",
     link: null
   }
 ];
@@ -564,9 +588,7 @@ export default function App() {
                       whileHover={{ y: -8 }}
                       className={cn(
                         "group bg-neutral-950/50 backdrop-blur-xl border border-white/[0.06] rounded-[2.5rem] p-8 md:p-12 hover:border-white/10 transition-all duration-500 relative overflow-hidden flex flex-col",
-                        i === 0 ? "lg:col-span-2 lg:row-span-1" : "",
-                        i === 1 ? "lg:col-span-1 lg:row-span-2" : "",
-                        i === 2 ? "lg:col-span-2 lg:row-span-1" : ""
+                        i === 0 ? "lg:col-span-2 lg:row-span-1" : "lg:col-span-1"
                       )}
                     >
                       <div className={cn("absolute inset-x-0 top-0 h-px bg-gradient-to-r", project.accentColor)} />
