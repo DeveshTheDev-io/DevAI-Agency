@@ -36,7 +36,8 @@ import {
   GraduationCap,
   Layout,
   GlassWater,
-  ShoppingBag
+  ShoppingBag,
+  Home
 } from 'lucide-react';
 
 const ICON_MAP: any = {
@@ -274,6 +275,17 @@ const CODING_PROJECTS = [
     icon: GlassWater,
     accentColor: "from-amber-500/20 to-amber-500/0",
     link: "https://peg-match-drink.vercel.app/"
+  },
+  {
+    id: "securestayzz",
+    name: "SecureStayzz Girls PG",
+    status: "Live",
+    statusColor: "emerald",
+    description: "Premium Girls PG accommodation booking & management web portal inspired by modern co-living platforms.",
+    features: ["Room Plans & Pricing Calculator", "High-Security & Meals Showcase", "Tenant Complaint / Issue Portal", "Rulebook & Direct Booking"],
+    icon: Home,
+    accentColor: "from-rose-500/20 to-rose-500/0",
+    link: "https://rajpg-omega.vercel.app/"
   },
   {
     id: "freshogo",
