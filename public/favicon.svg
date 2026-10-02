@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Dark Cosmic Rounded Backdrop for perfect tab visibility -->
+  <rect width="64" height="64" rx="16" fill="#040711" stroke="#1e293b" stroke-width="1.5"/>
+  
+  <!-- Subtle Ambient Glow -->
+  <circle cx="32" cy="32" r="22" fill="url(#coreGlow)" opacity="0.5"/>
+  
+  <!-- Orbital Ring -->
+  <circle cx="32" cy="32" r="18" stroke="url(#ringGrad)" stroke-width="1.5" stroke-opacity="0.7"/>
+
+  <!-- Interconnecting Neural Synapse Lines -->
+  <line x1="32" y1="13" x2="32" y2="51" stroke="url(#vertGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="13" y1="32" x2="51" y2="32" stroke="url(#horizGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="19" y1="19" x2="45" y2="45" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="2 3"/>
+  <line x1="45" y1="19" x2="19" y2="45" stroke="#a855f7" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="2 3"/>
+
+  <!-- 4 Characteristic Cosmic Nodes (Purple, Blue, Emerald, Cyan) -->
+  <circle cx="32" cy="13" r="5" fill="#a855f7"/>
+  <circle cx="13" cy="32" r="5" fill="#3b82f6"/>
+  <circle cx="51" cy="32" r="5" fill="#10b981"/>
+  <circle cx="32" cy="51" r="5" fill="#06b6d4"/>
+
+  <!-- Central Glowing Neural Core -->
+  <circle cx="32" cy="32" r="5.5" fill="#ffffff"/>
+  <circle cx="32" cy="32" r="3" fill="#38bdf8"/>
+
+  <!-- Gradients -->
+  <defs>
+    <radialGradient id="coreGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="60%" stop-color="#818cf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#040711" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vertGrad" x1="32" y1="13" x2="32" y2="51" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="horizGrad" x1="13" y1="32" x2="51" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="14" y1="14" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="35%" stop-color="#3b82f6"/>
+      <stop offset="70%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+</svg>
