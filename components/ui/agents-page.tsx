@@ -55,16 +55,16 @@ export function AgentsPage({ onOpenInquiry }: { onOpenInquiry: (source: string) 
     <div className="w-full relative z-20 pb-40">
       
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-5 sm:px-10 lg:px-20 max-w-[1920px] mx-auto overflow-hidden">
+      <section className="relative pt-28 sm:pt-40 pb-12 sm:pb-20 px-4 sm:px-10 lg:px-20 max-w-[1920px] mx-auto overflow-hidden">
         <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-[9px] font-black uppercase tracking-[0.3em] text-purple-400 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
             The Engine Room
           </div>
-          <h1 className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9] mb-8">
+          <h1 className="text-3xl sm:text-5xl md:text-8xl font-bold text-white tracking-tighter leading-[0.95] mb-6 sm:mb-8">
             Our Autonomous <br/><span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400">Workforce</span>
           </h1>
-          <p className="text-neutral-400 text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto mb-12">
+          <p className="text-neutral-400 text-sm sm:text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12">
             Devscosmic A.I is powered by an elite ecosystem of over 200 specialized agents. 
             From deep-tech engineering to full-stack marketing, meet the digital minds that build the future.
           </p>
@@ -72,7 +72,7 @@ export function AgentsPage({ onOpenInquiry }: { onOpenInquiry: (source: string) 
       </section>
 
       {/* Filters */}
-      <section className="px-5 sm:px-10 lg:px-20 max-w-[1920px] mx-auto mb-16 relative z-30">
+      <section className="px-4 sm:px-10 lg:px-20 max-w-[1920px] mx-auto mb-16 relative z-30">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
           <div className="relative w-full md:w-96">
             <LucideIcons.Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-neutral-500" />

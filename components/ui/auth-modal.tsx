@@ -135,12 +135,12 @@ export function AuthModal({ isOpen, onClose, onSuccess, initialMode = 'login' }:
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-md bg-neutral-950 border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl z-[20001]"
+            className="relative w-full max-w-md bg-neutral-950 border border-white/10 rounded-3xl sm:rounded-[2.5rem] overflow-hidden shadow-2xl z-[20001] max-h-[92dvh] flex flex-col"
           >
-            <div className="p-8 md:p-10">
+            <div className="p-6 sm:p-10 overflow-y-auto">
               <button 
                 onClick={onClose}
-                className="absolute top-6 right-6 text-neutral-500 hover:text-white transition-colors"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 text-neutral-500 hover:text-white transition-colors bg-neutral-900/60 p-1.5 rounded-full"
               >
                 <X className="w-5 h-5" />
               </button>

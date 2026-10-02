@@ -596,14 +596,14 @@ export default function App() {
             className="flex-1 w-full relative"
           >
             {/* Hero */}
-            <section className="w-full h-screen relative z-10 overflow-hidden">
+            <section className="w-full min-h-[100dvh] sm:h-screen relative z-10 overflow-hidden flex flex-col justify-center">
               <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} onServicesClick={() => scrollToSection('plans')} />
             </section>
 
-            <div className="px-5 sm:px-10 lg:px-20 max-w-[1920px] mx-auto relative z-20">
+            <div className="px-4 sm:px-8 lg:px-20 max-w-[1920px] mx-auto relative z-20 w-full overflow-hidden">
 
               {/* Background Paths / Marquee Section */}
-              <section className="my-20 md:my-40 flex items-center justify-center overflow-hidden">
+              <section className="my-14 sm:my-24 md:my-40 flex items-center justify-center overflow-hidden">
                 <BackgroundPaths
                   title="Forge the Future of Labor"
                   onButtonClick={() => scrollToSection('cta')}
@@ -611,21 +611,21 @@ export default function App() {
               </section>
 
               {/* What We Build Best — Projects section */}
-              <section id="projects" className="mb-40 md:mb-60 relative scroll-mt-32">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
+              <section id="projects" className="mb-24 sm:mb-36 md:mb-60 relative scroll-mt-32">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-16 md:mb-24 gap-6 md:gap-8">
                   <div className="max-w-4xl">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[9px] font-black uppercase tracking-[0.3em] text-neutral-500 mb-6">
                       <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
                       Featured Work
                     </div>
-                    <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-[0.9]">What We<br/>Build Best</h2>
+                    <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter leading-[0.95]">What We<br/>Build Best</h2>
                   </div>
-                  <p className="text-neutral-500 text-base md:text-xl leading-relaxed max-w-sm">
+                  <p className="text-neutral-500 text-sm sm:text-base md:text-xl leading-relaxed max-w-sm">
                     Production-ready full-stack applications and custom AI integrations, live in the wild.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-[minmax(300px,auto)]">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 auto-rows-[minmax(300px,auto)]">
                   {CODING_PROJECTS.map((project, i) => (
                     <motion.div
                       key={i}
@@ -635,7 +635,7 @@ export default function App() {
                       transition={{ delay: i * 0.12, duration: 0.5 }}
                       whileHover={{ y: -8 }}
                       className={cn(
-                        "group bg-neutral-950/50 backdrop-blur-xl border border-white/[0.06] rounded-[2.5rem] p-8 md:p-12 hover:border-white/10 transition-all duration-500 relative overflow-hidden flex flex-col",
+                        "group bg-neutral-950/50 backdrop-blur-xl border border-white/[0.06] rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-12 hover:border-white/10 transition-all duration-500 relative overflow-hidden flex flex-col",
                         i === 0 ? "lg:col-span-2 lg:row-span-1" : "lg:col-span-1"
                       )}
                     >
@@ -692,17 +692,17 @@ export default function App() {
               </section>
 
               {/* AI Courses Academy */}
-              <section id="courses" className="mb-40 md:mb-60 relative scroll-mt-32">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
+              <section id="courses" className="mb-24 sm:mb-36 md:mb-60 relative scroll-mt-32">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-16 md:mb-24 gap-6 md:gap-8">
                   <div className="max-w-4xl">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[9px] font-black uppercase tracking-[0.3em] text-neutral-500 mb-6">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       Learning Center
                     </div>
-                    <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-[0.9]">AI Mastery<br/>Academy</h2>
+                    <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter leading-[0.95]">AI Mastery<br/>Academy</h2>
                   </div>
                   <div className="max-w-sm">
-                    <p className="text-neutral-500 text-base md:text-xl leading-relaxed mb-6">
+                    <p className="text-neutral-500 text-sm sm:text-base md:text-xl leading-relaxed mb-6">
                       Bachelors & Graduates friendly. Professional certification with 100% placement support.
                     </p>
                     <div className="inline-flex items-center gap-3 text-emerald-400 font-bold text-[10px] uppercase tracking-widest bg-emerald-500/5 border border-emerald-500/20 px-4 py-2 rounded-full">
@@ -715,7 +715,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
                   {liveCourses.map((course, i) => {
                     const colors = colorMap[course.color];
                     return (
@@ -725,9 +725,9 @@ export default function App() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1, duration: 0.5 }}
-                        className="group bg-neutral-950/40 backdrop-blur-xl border border-white/[0.06] rounded-[2.5rem] p-8 md:p-10 hover:border-white/10 transition-all duration-500 relative flex flex-col h-full"
+                        className="group bg-neutral-950/40 backdrop-blur-xl border border-white/[0.06] rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-10 hover:border-white/10 transition-all duration-500 relative flex flex-col h-full"
                       >
-                        <div className="flex justify-between items-start mb-10">
+                        <div className="flex justify-between items-start mb-8 sm:mb-10">
                           <div className={cn("px-3 py-1 rounded-full border text-[8px] font-black uppercase tracking-widest", colors.tag)}>
                             {course.badge}
                           </div>
@@ -736,8 +736,8 @@ export default function App() {
                           </div>
                         </div>
 
-                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-emerald-400 transition-colors">{course.title}</h3>
-                        <p className="text-neutral-500 text-sm leading-relaxed mb-10 flex-grow">{course.description}</p>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-emerald-400 transition-colors">{course.title}</h3>
+                        <p className="text-neutral-500 text-sm leading-relaxed mb-8 sm:mb-10 flex-grow">{course.description}</p>
 
                         <div className="space-y-4">
                           <div className="flex items-center gap-3 text-[9px] font-black uppercase tracking-[0.2em] text-neutral-400">
@@ -746,7 +746,7 @@ export default function App() {
                           </div>
                           <button 
                             onClick={() => openInquiryModal(`Course Enrollment: ${course.title}`)}
-                            className="w-full py-4 rounded-xl bg-white text-black text-[10px] font-black hover:bg-neutral-200 transition-all uppercase tracking-[0.3em] flex items-center justify-center gap-2"
+                            className="w-full py-3.5 sm:py-4 rounded-xl bg-white text-black text-[10px] font-black hover:bg-neutral-200 transition-all uppercase tracking-[0.3em] flex items-center justify-center gap-2"
                           >
                             Enroll with {course.discount > 0 ? `${course.discount}%` : '40%'} Off
                           </button>
@@ -761,19 +761,19 @@ export default function App() {
               <RoiCalculator />
 
               {/* Pricing */}
-              <section id="plans" className="mb-40 md:mb-60 relative scroll-mt-32">
-                <div className="text-center mb-20 md:mb-28">
+              <section id="plans" className="mb-24 sm:mb-36 md:mb-60 relative scroll-mt-32">
+                <div className="text-center mb-12 sm:mb-20 md:mb-28">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[9px] font-black uppercase tracking-[0.3em] text-neutral-500 mb-6">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     Pricing
                   </div>
-                  <h2 className="text-4xl md:text-8xl font-bold text-white tracking-tighter leading-[0.85]">Service<br/>Packages</h2>
-                  <p className="text-neutral-500 max-w-xl mx-auto text-base md:text-lg font-medium mt-6">
+                  <h2 className="text-3xl sm:text-6xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9]">Service<br/>Packages</h2>
+                  <p className="text-neutral-500 max-w-xl mx-auto text-sm sm:text-base md:text-lg font-medium mt-4 sm:mt-6">
                     Transparent pricing for every stage — from first idea to enterprise scale. All prices in INR.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 items-start">
                   {(showAllPlans ? livePlans : livePlans.slice(0, 3)).map((plan, i) => (
                     <motion.div
                       key={i}
@@ -782,7 +782,7 @@ export default function App() {
                       viewport={{ once: true }}
                       transition={{ delay: (i % 3) * 0.1, duration: 0.5 }}
                       className={cn(
-                        "relative flex flex-col p-8 md:p-12 rounded-[2rem] border transition-all duration-500",
+                        "relative flex flex-col p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-[2rem] border transition-all duration-500",
                         plan.highlight
                           ? "bg-neutral-900/50 border-purple-500/30 shadow-[0_0_80px_rgba(168,85,247,0.12)] lg:scale-[1.03] z-10"
                           : "bg-neutral-950/50 border-white/[0.06] hover:border-white/10"
@@ -801,7 +801,7 @@ export default function App() {
 
                       <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mb-6">
-                        <span className="text-4xl md:text-5xl font-black text-white tracking-tighter">{plan.price}</span>
+                        <span className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tighter">{plan.price}</span>
                       </div>
                       <p className="text-neutral-500 text-sm md:text-base mb-8 leading-relaxed">{plan.description}</p>
 
@@ -846,14 +846,14 @@ export default function App() {
               <TestimonialsSection />
 
               {/* Workflow */}
-              <section id="workflow" className="mb-40 md:mb-60 scroll-mt-32">
-                <div className="text-center mb-20 md:mb-28">
+              <section id="workflow" className="mb-24 sm:mb-36 md:mb-60 scroll-mt-32">
+                <div className="text-center mb-12 sm:mb-20 md:mb-28">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[9px] font-black uppercase tracking-[0.3em] text-neutral-500 mb-6">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                     Process
                   </div>
-                  <h2 className="text-4xl md:text-8xl font-bold text-white tracking-tighter leading-[0.85]">How We<br/>Operate</h2>
-                  <p className="text-neutral-500 max-w-xl mx-auto text-base md:text-lg font-medium mt-6">
+                  <h2 className="text-3xl sm:text-6xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9]">How We<br/>Operate</h2>
+                  <p className="text-neutral-500 max-w-xl mx-auto text-sm sm:text-base md:text-lg font-medium mt-4 sm:mt-6">
                     Precision engineering meets high-velocity deployment.
                   </p>
                 </div>
@@ -872,12 +872,12 @@ export default function App() {
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1, duration: 0.5 }}
                         whileHover={{ y: -5 }}
-                        className="relative p-8 md:p-10 rounded-[2rem] bg-neutral-950/60 border border-white/[0.06] hover:border-white/10 transition-all duration-400 backdrop-blur-sm"
+                        className="relative p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-[2rem] bg-neutral-950/60 border border-white/[0.06] hover:border-white/10 transition-all duration-400 backdrop-blur-sm"
                       >
-                        <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center border mb-8 text-xs font-black", colors.glow, colors.icon)}>
+                        <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center border mb-6 sm:mb-8 text-xs font-black", colors.glow, colors.icon)}>
                           {step.step}
                         </div>
-                        <h4 className="text-xl md:text-2xl font-bold text-white mb-4">{step.title}</h4>
+                        <h4 className="text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">{step.title}</h4>
                         <p className="text-sm md:text-base text-neutral-500 leading-relaxed">{step.desc}</p>
                       </motion.div>
                     );
@@ -886,7 +886,7 @@ export default function App() {
               </section>
 
               {/* CTA */}
-              <section id="cta" className="mb-40 md:mb-60 relative rounded-[2.5rem] overflow-hidden border border-white/[0.08] scroll-mt-32">
+              <section id="cta" className="mb-20 sm:mb-36 md:mb-60 relative rounded-2xl sm:rounded-[2.5rem] overflow-hidden border border-white/[0.08] scroll-mt-32">
                 <AetherHero
                   height="600px"
                   title="Forge the Future of Labor."
@@ -908,10 +908,10 @@ export default function App() {
             transition={{ duration: 0.4 }}
             className="relative min-h-screen pt-28 z-20 pb-40"
           >
-            <div className="relative z-10 px-6 md:px-10 lg:px-20 max-w-7xl mx-auto">
+            <div className="relative z-10 px-4 sm:px-8 lg:px-20 max-w-7xl mx-auto">
               
               {/* About Hero / Mission */}
-              <section className="pt-20 pb-32">
+              <section className="pt-10 sm:pt-20 pb-16 sm:pb-32">
                 <div className="max-w-4xl">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -922,11 +922,11 @@ export default function App() {
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                       About The Agency
                     </div>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.85] mb-12">
+                    <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.95] mb-6 sm:mb-12">
                       The vision of engineering is<br/>
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 drop-shadow-[0_0_30px_rgba(168,85,247,0.4)]">Human + A.I</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-neutral-400 font-medium leading-relaxed max-w-2xl">
+                    <p className="text-base sm:text-xl md:text-2xl text-neutral-400 font-medium leading-relaxed max-w-2xl">
                       We don't just build software. We architect autonomous intelligence and high-velocity systems for the next generation of industry leaders.
                     </p>
                   </motion.div>
@@ -934,16 +934,16 @@ export default function App() {
               </section>
 
               {/* Up-To-Date Tech Stack */}
-              <section className="py-24 border-t border-white/[0.06]">
-                <div className="mb-16 md:mb-24 text-center">
+              <section className="py-14 sm:py-24 border-t border-white/[0.06]">
+                <div className="mb-12 sm:mb-16 md:mb-24 text-center">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[9px] font-black uppercase tracking-[0.3em] text-neutral-500 mb-6">
                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
                     Our Arsenal
                   </div>
-                  <h2 className="text-4xl md:text-8xl font-bold text-white tracking-tighter leading-[0.85]">Up-To-Date<br/>Tech Stack</h2>
+                  <h2 className="text-3xl sm:text-6xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9]">Up-To-Date<br/>Tech Stack</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-32">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 mb-20 sm:mb-32">
                   {TECH_STACK.map((item: any, i: number) => {
                     const colors = colorMap[item.color];
                     return (
@@ -955,19 +955,19 @@ export default function App() {
                         transition={{ delay: i * 0.1, duration: 0.5 }}
                       >
                         <Card className={cn(
-                          "group overflow-hidden bg-neutral-950/40 backdrop-blur-xl border-white/[0.06] transition-all duration-500 relative rounded-[2.5rem] h-full p-8 md:p-12 hover:border-white/10",
+                          "group overflow-hidden bg-neutral-950/40 backdrop-blur-xl border-white/[0.06] transition-all duration-500 relative rounded-2xl sm:rounded-[2.5rem] h-full p-5 sm:p-8 md:p-12 hover:border-white/10",
                           colors.border
                         )}>
                           <SpotlightHover />
-                          <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-10 border transition-all duration-500", colors.glow)}>
-                            <item.icon className={cn("w-8 h-8", colors.icon)} />
+                          <div className={cn("w-14 sm:w-16 h-14 sm:h-16 rounded-2xl flex items-center justify-center mb-6 sm:mb-10 border transition-all duration-500", colors.glow)}>
+                            <item.icon className={cn("w-7 sm:w-8 h-7 sm:h-8", colors.icon)} />
                           </div>
                           <div>
                             <div className="flex items-center gap-3 mb-4">
-                              <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{item.title}</h3>
+                              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">{item.title}</h3>
                               <span className={cn("text-[9px] px-3 py-1 rounded-full border font-bold uppercase tracking-widest", colors.tag)}>{item.tag}</span>
                             </div>
-                            <p className="text-neutral-500 text-lg leading-relaxed">{item.description}</p>
+                            <p className="text-neutral-500 text-base sm:text-lg leading-relaxed">{item.description}</p>
                           </div>
                         </Card>
                       </motion.div>

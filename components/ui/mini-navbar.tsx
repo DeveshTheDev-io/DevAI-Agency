@@ -108,16 +108,16 @@ export function Navbar({
   ];
 
   return (
-    <header className={`fixed top-8 left-1/2 transform -translate-x-1/2 z-[200]
+    <header className={`fixed top-4 sm:top-8 left-1/2 transform -translate-x-1/2 z-[200]
                        flex flex-col items-center
-                       px-5 py-2.5 backdrop-blur-xl
+                       px-4 sm:px-5 py-2.5 backdrop-blur-xl
                        ${headerShapeClass}
-                       border border-white/5 bg-black/40
-                       w-[calc(100%-2.5rem)] sm:w-auto
-                       shadow-[0_8px_32px_rgba(0,0,0,0.5)]
+                       border border-white/10 bg-black/60
+                       w-[calc(100%-1.75rem)] sm:w-auto
+                       shadow-[0_8px_32px_rgba(0,0,0,0.6)]
                        transition-all duration-500 ease-in-out`}>
 
-      <div className="flex items-center justify-between w-full gap-x-6 sm:gap-x-10">
+      <div className="flex items-center justify-between w-full gap-x-4 sm:gap-x-10">
         <div className="flex items-center">
            {logoElement}
         </div>
@@ -181,8 +181,8 @@ export function Navbar({
         </button>
       </div>
 
-      <div className={`lg:hidden flex flex-col items-center w-full transition-all ease-in-out duration-500 overflow-hidden
-                       ${isOpen ? 'max-h-[500px] opacity-100 pt-6 pb-2' : 'max-h-0 opacity-0 pt-0 pointer-events-none'}`}>
+      <div className={`lg:hidden flex flex-col items-center w-full transition-all ease-in-out duration-500 overflow-y-auto overscroll-contain
+                       ${isOpen ? 'max-h-[75vh] opacity-100 pt-5 pb-3' : 'max-h-0 opacity-0 pt-0 pointer-events-none'}`}>
         <nav className="flex flex-col items-center space-y-6 text-sm w-full">
           {navLinksData.map((link, idx) => (
             <button 

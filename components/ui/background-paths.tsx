@@ -95,18 +95,18 @@ export function BackgroundPaths({
                 ))}
             </div>
 
-            <div className="relative z-10 container mx-auto px-6 text-center">
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8 }}
                     className="max-w-5xl mx-auto"
                 >
-                    <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-black mb-12 tracking-tighter leading-[0.85] font-mono">
+                    <h2 className="text-3xl sm:text-6xl md:text-7xl lg:text-9xl font-black mb-8 sm:mb-12 tracking-tighter leading-[0.9] font-mono break-words">
                         {words.map((word, wordIndex) => (
                             <span
                                 key={wordIndex}
-                                className="inline-block mr-3 md:mr-5 last:mr-0"
+                                className="inline-block mr-2 sm:mr-4 last:mr-0"
                             >
                                 {word.split("").map((letter, letterIndex) => (
                                     <motion.span

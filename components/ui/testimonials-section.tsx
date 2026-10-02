@@ -82,14 +82,14 @@ export function TestimonialsSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-transparent blur-3xl rounded-full mix-blend-screen" />
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-5 sm:px-10 lg:px-20 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+      <div className="max-w-[1920px] mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-[9px] font-black uppercase tracking-[0.3em] text-purple-400 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
               Client Success
             </div>
-            <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-[0.9]">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter leading-[0.9]">
               Voices of the <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Automated Era.</span>
             </h2>
           </div>
@@ -103,7 +103,7 @@ export function TestimonialsSection() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {localReviews.map((testimonial, i) => (
             <motion.div
               key={i}
@@ -111,7 +111,7 @@ export function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 3) * 0.1 }}
-              className="p-8 rounded-3xl bg-neutral-950/40 border border-white/[0.06] hover:border-purple-500/30 transition-colors relative group"
+              className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-neutral-950/40 border border-white/[0.06] hover:border-purple-500/30 transition-colors relative group"
             >
               <Quote className="absolute top-8 right-8 w-12 h-12 text-white/[0.02] group-hover:text-purple-500/10 transition-colors" />
               <div className="flex gap-1 mb-6">

@@ -115,7 +115,7 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
 
   return (
     <div 
-      className="relative w-full h-screen bg-[#02060f] overflow-hidden flex flex-col items-center justify-center" 
+      className="relative w-full min-h-[100dvh] bg-[#02060f] overflow-x-hidden flex flex-col items-center justify-center pt-24 pb-16 sm:py-20" 
       style={{ fontFamily: '"Space Grotesk", system-ui, -apple-system, sans-serif' }}
     >
       
@@ -140,31 +140,31 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
       />
 
       {/* ── HERO CONTENT ── */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-[1200px] mx-auto" style={{ marginTop: '5vh' }}>
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-[1200px] mx-auto mt-2 sm:mt-6">
         
         {/* Available for Projects Badge with Green Blinking Light */}
         <motion.div
           initial={{ opacity: 0, y: -10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="mb-5 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.25)]"
+          className="mb-4 sm:mb-6 inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.25)] max-w-[94vw] overflow-hidden"
         >
-          <span className="relative flex h-2.5 w-2.5">
+          <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 shadow-[0_0_10px_#10b981]"></span>
+            <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-emerald-400 shadow-[0_0_10px_#10b981]"></span>
           </span>
-          <span className="text-[11px] sm:text-xs font-mono tracking-[0.2em] uppercase text-emerald-300 font-semibold">
+          <span className="text-[10px] sm:text-xs font-mono tracking-[0.18em] uppercase text-emerald-300 font-semibold truncate">
             Available for projects
           </span>
         </motion.div>
 
         {/* Title */}
-        <h1 className="text-[38px] sm:text-[56px] md:text-[72px] lg:text-[82px] text-white tracking-tight leading-[1.08] mb-8 font-bold drop-shadow-2xl">
+        <h1 className="text-white tracking-tight leading-[1.08] mb-6 sm:mb-8 font-bold drop-shadow-2xl w-full px-1">
           <motion.span 
             initial={{ clipPath: 'inset(-100% 0 100% 0)', y: 24, opacity: 0 }}
             animate={{ clipPath: 'inset(-100% 0 -100% 0)', y: 0, opacity: 1 }}
             transition={{ duration: 0.85, ease: [0.16,1,0.3,1], delay: 0.32 }}
-            className="block text-slate-200/95 font-medium tracking-tight text-[28px] sm:text-[40px] md:text-[52px] mb-1"
+            className="block text-slate-200/95 font-medium tracking-tight text-[22px] xs:text-[26px] sm:text-[38px] md:text-[50px] mb-1"
           >
             The vision of engineering is
           </motion.span>
@@ -172,7 +172,7 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
             initial={{ scale: 0.92, opacity: 0, filter: 'blur(10px)' }}
             animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
             transition={{ duration: 0.9, ease: [0.16,1,0.3,1], delay: 0.44 }}
-            className="relative inline-block font-black tracking-tight"
+            className="relative inline-block font-black tracking-tight text-[36px] xs:text-[44px] sm:text-[62px] md:text-[76px] lg:text-[88px] break-words"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400 drop-shadow-[0_0_35px_rgba(34,211,238,0.55)]">
               HUMAN + A.I
@@ -182,7 +182,7 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1.1, ease: [0.16,1,0.3,1], delay: 0.65 }}
-              className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_12px_#22d3ee]"
+              className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_12px_#22d3ee]"
             />
           </motion.span>
         </h1>
@@ -192,7 +192,7 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: [0.25,0.8,0.35,1], delay: 0.7 }}
-          className="relative group mb-10 max-w-2xl mx-auto px-7 py-6 rounded-2xl bg-black/45 backdrop-blur-xl border border-white/10 shadow-[0_10px_35px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden"
+          className="relative group mb-8 sm:mb-10 w-full max-w-2xl mx-auto px-4 sm:px-7 py-4 sm:py-6 rounded-2xl bg-black/45 backdrop-blur-xl border border-white/10 shadow-[0_10px_35px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden"
         >
           {/* Cybernetic HUD Corner Accents */}
           <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyan-400/70" />
@@ -200,14 +200,14 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
           <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyan-400/70" />
           <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyan-400/70" />
 
-          <p className="text-[17px] sm:text-[19px] md:text-[21px] text-slate-100 leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+          <p className="text-[14px] xs:text-[16px] sm:text-[19px] md:text-[21px] text-slate-100 leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             <GlitchWordDecoder
               text="Forging autonomous neural architectures that operate 24/7."
               startDelay={750}
               highlightWord="24/7."
             />
           </p>
-          <p className="text-[15px] sm:text-[17px] md:text-[18px] text-cyan-200/90 font-mono tracking-wide mt-2">
+          <p className="text-[12px] xs:text-[14px] sm:text-[17px] md:text-[18px] text-cyan-200/90 font-mono tracking-wide mt-2 sm:mt-2.5">
             <GlitchWordDecoder
               text="Welcome to the final iteration of software engineering."
               startDelay={1750}
@@ -220,11 +220,11 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16,1,0.3,1], delay: 0.94 }}
-          className="flex flex-col sm:flex-row items-center gap-5"
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-5 w-full sm:w-auto max-w-xs sm:max-w-none px-4 sm:px-0"
         >
           <button
             onClick={onCtaClick}
-            className="group relative inline-flex items-center justify-center gap-3 px-9 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-extrabold text-base sm:text-lg tracking-wide rounded-xl shadow-[0_0_35px_rgba(34,211,238,0.45)] hover:shadow-[0_0_55px_rgba(34,211,238,0.75)] hover:scale-105 active:scale-95 transition-all overflow-hidden"
+            className="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-7 sm:px-9 py-3.5 sm:py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-extrabold text-sm sm:text-base md:text-lg tracking-wide rounded-xl shadow-[0_0_35px_rgba(34,211,238,0.45)] hover:shadow-[0_0_55px_rgba(34,211,238,0.75)] hover:scale-105 active:scale-95 transition-all overflow-hidden"
           >
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
             <span className="relative z-10 font-bold">Connect with us</span>
@@ -235,14 +235,14 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
           
           <button
             onClick={onServicesClick}
-            className="group relative inline-flex items-center justify-center px-9 py-4 bg-slate-900/60 text-white font-semibold text-base sm:text-lg tracking-wide rounded-xl border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-950/40 shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all hover:scale-105 active:scale-95 backdrop-blur-xl"
+            className="group relative inline-flex items-center justify-center w-full sm:w-auto px-7 sm:px-9 py-3.5 sm:py-4 bg-slate-900/60 text-white font-semibold text-sm sm:text-base md:text-lg tracking-wide rounded-xl border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-950/40 shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all hover:scale-105 active:scale-95 backdrop-blur-xl"
           >
             <span className="group-hover:text-cyan-200 transition-colors">Services</span>
           </button>
         </motion.div>
 
         {/* Features List */}
-        <ul className="grid grid-cols-2 lg:flex lg:flex-wrap justify-center gap-x-6 gap-y-4 lg:gap-12 mt-16 w-full max-w-3xl">
+        <ul className="grid grid-cols-2 lg:flex lg:flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4 lg:gap-12 mt-10 sm:mt-16 w-full max-w-3xl px-3">
           {[
             { text: "Autonomous Agents", delay: 1.08 },
             { text: "Custom AI Models", delay: 1.15 },
@@ -254,10 +254,10 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.25,0.8,0.35,1], delay: item.delay }}
-              className="flex items-center gap-3 text-[13px] md:text-[14.5px] text-[#e2ebf5]"
+              className="flex items-center gap-2 sm:gap-3 text-[11.5px] sm:text-[13px] md:text-[14.5px] text-[#e2ebf5]"
               style={{ fontWeight: 534, letterSpacing: '-0.05em' }}
             >
-              <svg className="w-[9px] h-[16px] flex-none stroke-[rgba(214,232,250,0.90)]" viewBox="0 0 11 20" fill="none" style={{ strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
+              <svg className="w-[8px] sm:w-[9px] h-[14px] sm:h-[16px] flex-none stroke-[rgba(214,232,250,0.90)]" viewBox="0 0 11 20" fill="none" style={{ strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
                 <path d="M1.15 1.15 L9.6 10 L1.15 18.85" />
               </svg>
               <span>{item.text}</span>
@@ -270,7 +270,7 @@ export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?:
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}
           transition={{ duration: 0.55, ease: [0.16,1,0.3,1], delay: 1.34 }}
-          className="w-[1px] h-10 mt-12 origin-top"
+          className="w-[1px] h-8 sm:h-10 mt-8 sm:mt-12 origin-top hidden xs:block"
           style={{
             background: 'linear-gradient(180deg, rgba(186,200,214,0.70) 0%, rgba(206,220,232,0.92) 52%, rgba(182,198,212,0.68) 100%)'
           }}

@@ -97,12 +97,12 @@ export function LeadModal({ isOpen, onClose, source = "General Inquiry" }: LeadM
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
             transition={{ type: "spring", damping: 25, stiffness: 350 }}
-            className="relative w-full max-w-xl bg-[#0a0a0a] border border-white/10 rounded-[3rem] overflow-hidden shadow-[0_0_120px_rgba(139,92,246,0.3)] z-[10001] max-h-[90vh] flex flex-col"
+            className="relative w-full max-w-xl bg-[#0a0a0a] border border-white/10 rounded-3xl sm:rounded-[3rem] overflow-hidden shadow-[0_0_120px_rgba(139,92,246,0.3)] z-[10001] max-h-[92dvh] flex flex-col"
           >
-            <div className="p-8 md:p-12 relative bg-[#0a0a0a] flex-1 overflow-y-auto">
+            <div className="p-5 sm:p-8 md:p-12 relative bg-[#0a0a0a] flex-1 overflow-y-auto">
               <button 
                 onClick={onClose}
-                className="absolute top-8 right-8 text-neutral-500 hover:text-white transition-all z-[10002] bg-neutral-900/50 p-2 rounded-full"
+                className="absolute top-4 right-4 sm:top-8 sm:right-8 text-neutral-500 hover:text-white transition-all z-[10002] bg-neutral-900/60 p-2 rounded-full"
               >
                 <X className="w-5 h-5" />
               </button>

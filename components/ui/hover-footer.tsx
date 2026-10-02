@@ -222,7 +222,7 @@ export function HoverFooter({
     <footer className="bg-[#0F0F11]/40 relative h-fit rounded-t-[3rem] overflow-hidden mt-20 border-t border-white/5">
       <AdminPanel isOpen={isAdminPanelOpen} onClose={() => setIsAdminPanelOpen(false)} />
 
-      <div className="max-w-7xl mx-auto p-10 md:p-20 z-40 relative">
+      <div className="max-w-7xl mx-auto px-5 py-12 sm:p-12 md:p-20 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           <div className="flex flex-col space-y-6">
             <div 

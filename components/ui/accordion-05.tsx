@@ -60,24 +60,24 @@ const items = [
 
 export function Accordion05() {
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-20">
-      <div className="mb-16 text-center">
-        <h2 className="text-sm font-bold tracking-[0.3em] uppercase text-purple-500 mb-4">The Agency</h2>
-        <h3 className="text-4xl md:text-6xl font-black text-white tracking-tighter">ENGINEERING INTELLIGENCE.</h3>
+    <div className="w-full max-w-5xl mx-auto px-4 py-12 sm:py-20">
+      <div className="mb-10 sm:mb-16 text-center">
+        <h2 className="text-xs sm:text-sm font-bold tracking-[0.3em] uppercase text-purple-500 mb-3 sm:mb-4">The Agency</h2>
+        <h3 className="text-2xl sm:text-4xl md:text-6xl font-black text-white tracking-tighter">ENGINEERING INTELLIGENCE.</h3>
       </div>
       <Accordion type="single" defaultValue="01" collapsible className="w-full">
         {items.map((item) => (
           <AccordionItem value={item.id} key={item.id} className="border-neutral-900 last:border-b">
-            <AccordionTrigger className="text-left py-10 md:py-16 overflow-hidden text-neutral-500 duration-300 hover:text-white hover:no-underline cursor-pointer data-[state=open]:text-purple-400 [&>svg]:hidden">
-              <div className="flex flex-1 items-start gap-8 md:gap-16">
-                <p className="text-xs font-mono pt-2 md:pt-4">{item.id}</p>
-                <h1 className="uppercase text-3xl md:text-6xl font-bold tracking-tighter">
+            <AccordionTrigger className="text-left py-6 sm:py-10 md:py-16 overflow-hidden text-neutral-500 duration-300 hover:text-white hover:no-underline cursor-pointer data-[state=open]:text-purple-400 [&>svg]:hidden">
+              <div className="flex flex-1 items-start gap-4 sm:gap-8 md:gap-16">
+                <p className="text-xs font-mono pt-1 sm:pt-2 md:pt-4">{item.id}</p>
+                <h1 className="uppercase text-xl sm:text-3xl md:text-6xl font-bold tracking-tighter">
                   {item.title}
                 </h1>
               </div>
             </AccordionTrigger>
 
-            <AccordionContent className="text-neutral-400 text-lg md:text-xl leading-relaxed pb-12 pl-16 md:pl-32 max-w-3xl">
+            <AccordionContent className="text-neutral-400 text-sm sm:text-base md:text-xl leading-relaxed pb-8 sm:pb-12 pl-6 sm:pl-16 md:pl-32 max-w-3xl">
               {item.content}
             </AccordionContent>
           </AccordionItem>

@@ -376,7 +376,7 @@ Pick an option below or ask me any specific question!`,
   return (
     <>
       {/* ── FLOATING TRIGGER BUTTON ── */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end">
         {/* Floating Tooltip Invitation */}
         <AnimatePresence>
           {!isOpen && showTooltip && (
@@ -385,19 +385,19 @@ Pick an option below or ask me any specific question!`,
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.9 }}
               onClick={() => setIsOpen(true)}
-              className="mb-3 px-4 py-2.5 rounded-2xl bg-neutral-900/90 border border-cyan-500/30 text-white text-xs font-medium shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_15px_rgba(34,211,238,0.2)] backdrop-blur-xl cursor-pointer flex items-center gap-2 group hover:border-cyan-400 transition-all"
+              className="mb-3 px-3.5 py-2 rounded-2xl bg-neutral-900/90 border border-cyan-500/30 text-white text-xs font-medium shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_15px_rgba(34,211,238,0.2)] backdrop-blur-xl cursor-pointer flex items-center gap-2 group hover:border-cyan-400 transition-all max-w-[85vw]"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
-              <span>Ask <strong className="text-cyan-300">Devscosmic AI</strong> about plans & booking</span>
+              <span className="truncate">Ask <strong className="text-cyan-300">Devscosmic AI</strong></span>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowTooltip(false);
                 }}
-                className="text-neutral-400 hover:text-white ml-1"
+                className="text-neutral-400 hover:text-white ml-1 shrink-0"
               >
                 <X className="w-3 h-3" />
               </button>
@@ -410,24 +410,24 @@ Pick an option below or ask me any specific question!`,
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(!isOpen)}
-          className="relative group flex items-center gap-3 px-5 py-3.5 rounded-full bg-gradient-to-r from-neutral-950 via-slate-900 to-cyan-950 border border-cyan-500/40 shadow-[0_0_30px_rgba(34,211,238,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.6)] transition-all overflow-hidden"
+          className="relative group flex items-center gap-2.5 sm:gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-gradient-to-r from-neutral-950 via-slate-900 to-cyan-950 border border-cyan-500/40 shadow-[0_0_30px_rgba(34,211,238,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:border-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.6)] transition-all overflow-hidden"
           aria-label="Open AI Assistant"
         >
           {/* Subtle neon glow sweep */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
 
           {/* Green Status Beacon */}
-          <div className="relative flex h-2.5 w-2.5">
+          <div className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5 shrink-0">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 shadow-[0_0_8px_#10b981]"></span>
+            <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-emerald-400 shadow-[0_0_8px_#10b981]"></span>
           </div>
 
-          <div className="w-7 h-7 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300">
-            {isOpen ? <X className="w-4 h-4" /> : <Bot className="w-4 h-4 animate-pulse" />}
+          <div className="w-6 sm:w-7 h-6 sm:h-7 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shrink-0">
+            {isOpen ? <X className="w-3.5 h-3.5" /> : <Bot className="w-3.5 sm:w-4 h-3.5 sm:h-4 animate-pulse" />}
           </div>
 
           <span className="text-white text-xs sm:text-sm font-bold tracking-wide">
-            {isOpen ? 'Close Assistant' : 'Devscosmic AI'}
+            {isOpen ? 'Close' : 'Devscosmic AI'}
           </span>
 
           {hasUnread && !isOpen && (
@@ -444,7 +444,7 @@ Pick an option below or ask me any specific question!`,
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] h-[590px] max-h-[82vh] flex flex-col rounded-3xl bg-[#030712]/95 border border-cyan-500/30 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(34,211,238,0.15)] overflow-hidden"
+            className="fixed bottom-20 sm:bottom-24 right-2 sm:right-6 left-2 sm:left-auto z-50 w-[calc(100vw-1rem)] sm:w-[420px] h-[540px] max-h-[78vh] flex flex-col rounded-2xl sm:rounded-3xl bg-[#030712]/95 border border-cyan-500/30 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(34,211,238,0.15)] overflow-hidden"
             style={{ fontFamily: '"Space Grotesk", system-ui, sans-serif' }}
           >
             {/* Header */}

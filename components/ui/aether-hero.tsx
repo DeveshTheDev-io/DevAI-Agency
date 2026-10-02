@@ -178,21 +178,21 @@ export function AetherHero({
         className="absolute inset-0 z-1 pointer-events-none"
         style={{ background: overlayGradient }}
       />
-      <div className="relative z-10 h-full flex items-center justify-center p-8 text-center">
+      <div className="relative z-10 h-full flex items-center justify-center p-5 sm:p-8 text-center">
         <div style={{ maxWidth, color: textColor }}>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter mb-6 leading-[1.1]">{title}</h1>
-          <p className="text-lg md:text-xl opacity-80 max-w-2xl mx-auto leading-relaxed">{subtitle}</p>
+          <h1 className="text-2xl sm:text-4xl md:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 leading-[1.1]">{title}</h1>
+          <p className="text-sm sm:text-base md:text-xl opacity-80 max-w-2xl mx-auto leading-relaxed">{subtitle}</p>
           {ctaLabel && (
-            <div className="mt-12">
+            <div className="mt-8 sm:mt-12">
               {onCtaClick ? (
                 <button 
                   onClick={onCtaClick}
-                  className="px-10 py-5 bg-white text-black rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-neutral-200 transition-all active:scale-95"
+                  className="px-7 sm:px-10 py-3.5 sm:py-5 bg-white text-black rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-neutral-200 transition-all active:scale-95"
                 >
                   {ctaLabel}
                 </button>
               ) : (
-                <a href={ctaHref} className="px-10 py-5 bg-white text-black rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-neutral-200 transition-all inline-block">
+                <a href={ctaHref} className="px-7 sm:px-10 py-3.5 sm:py-5 bg-white text-black rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-neutral-200 transition-all inline-block">
                   {ctaLabel}
                 </a>
               )}
