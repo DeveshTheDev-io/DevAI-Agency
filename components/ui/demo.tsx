@@ -1,297 +1,285 @@
 'use client'
 
-import React from 'react';
-import { Spotlight } from "./spotlight";
-import { ChevronRight, Cpu, Code2, Globe, Rocket, ShoppingCart, Zap, TrendingUp, Package, Star } from "lucide-react";
+import React, { useEffect } from 'react';
 import { motion } from "framer-motion";
 
-interface SplineSceneBasicProps {
-  onCtaClick?: () => void;
+const GLYPHS = "!<>-_\\/[]{}—=+*^?#________0101XYZ%";
+
+function GlitchWordDecoder({
+  text,
+  startDelay = 0,
+  highlightWord = "24/7.",
+  className = "",
+  highlightClassName = "font-semibold text-white underline decoration-cyan-400/60 underline-offset-4"
+}: {
+  text: string;
+  startDelay?: number;
+  highlightWord?: string;
+  className?: string;
+  highlightClassName?: string;
+}) {
+  const words = React.useMemo(() => text.split(" "), [text]);
+  const [decodedCount, setDecodedCount] = React.useState(0);
+  const [glitchWord, setGlitchWord] = React.useState("");
+
+  React.useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    let intervalId: NodeJS.Timeout;
+
+    timeoutId = setTimeout(() => {
+      let currentIdx = 0;
+      let tick = 0;
+
+      intervalId = setInterval(() => {
+        if (currentIdx >= words.length) {
+          clearInterval(intervalId);
+          setDecodedCount(words.length);
+          setGlitchWord("");
+          return;
+        }
+
+        const target = words[currentIdx];
+        tick++;
+
+        // Generate scrambled glitch characters matching length
+        const scrambled = target
+          .split("")
+          .map((ch) => {
+            if (Math.random() > 0.6) return ch;
+            return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+          })
+          .join("");
+
+        setGlitchWord(scrambled);
+
+        // Every 3 ticks (~120ms), decode and lock the word
+        if (tick >= 3) {
+          currentIdx++;
+          setDecodedCount(currentIdx);
+          tick = 0;
+        }
+      }, 40);
+    }, startDelay);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
+  }, [words, startDelay]);
+
+  return (
+    <span className={className}>
+      {words.map((word, idx) => {
+        if (idx < decodedCount) {
+          const isHighlighted = word === highlightWord;
+          return (
+            <span
+              key={idx}
+              className={isHighlighted ? highlightClassName : ""}
+            >
+              {word}{" "}
+            </span>
+          );
+        } else if (idx === decodedCount && glitchWord) {
+          return (
+            <span
+              key={idx}
+              className="text-cyan-300 font-mono tracking-wider drop-shadow-[0_0_10px_#22d3ee] inline-block scale-105"
+            >
+              {glitchWord}{" "}
+            </span>
+          );
+        } else {
+          return (
+            <span key={idx} className="opacity-0 select-none">
+              {word}{" "}
+            </span>
+          );
+        }
+      })}
+    </span>
+  );
 }
 
-// ─── Floating UI Cards (E-Commerce + Code aesthetic) ───
-const FLOAT_CARDS = [
-  {
-    icon: ShoppingCart,
-    label: "Revenue Engine",
-    value: "+340%",
-    sub: "Conversion Rate",
-    color: "blue",
-    pos: "top-[12%] left-[4%]",
-    delay: 0,
-  },
-  {
-    icon: TrendingUp,
-    label: "AI Insights",
-    value: "98.2%",
-    sub: "Prediction Accuracy",
-    color: "emerald",
-    pos: "top-[18%] right-[4%]",
-    delay: 0.3,
-  },
-  {
-    icon: Zap,
-    label: "Deploy Speed",
-    value: "4.2s",
-    sub: "From Push to Live",
-    color: "amber",
-    pos: "bottom-[22%] left-[3%]",
-    delay: 0.5,
-  },
-  {
-    icon: Package,
-    label: "Products Built",
-    value: "120+",
-    sub: "Shipped to Production",
-    color: "purple",
-    pos: "bottom-[18%] right-[4%]",
-    delay: 0.2,
-  },
-];
+export function SplineSceneBasic({ onCtaClick, onServicesClick }: { onCtaClick?: () => void, onServicesClick?: () => void }) {
+  useEffect(() => {
+    // Dynamically inject Space Grotesk for an ultra-modern, cyberpunk/tech AI agency look
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
 
-const colorConfig: Record<string, { icon: string; bg: string; border: string; bar: string }> = {
-  blue:    { icon: "text-blue-400",    bg: "bg-blue-500/10",    border: "border-blue-500/20",    bar: "bg-blue-400"    },
-  emerald: { icon: "text-emerald-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20", bar: "bg-emerald-400" },
-  amber:   { icon: "text-amber-400",   bg: "bg-amber-500/10",   border: "border-amber-500/20",   bar: "bg-amber-400"   },
-  purple:  { icon: "text-purple-400",  bg: "bg-purple-500/10",  border: "border-purple-500/20",  bar: "bg-purple-400"  },
-};
-
-function FloatingCard({ card, i }: { card: typeof FLOAT_CARDS[0]; i: number }) {
-  const c = colorConfig[card.color];
   return (
-    <motion.div
-      className={`absolute ${card.pos} hidden lg:block z-10`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: [0, -10, 0] }}
-      transition={{
-        opacity: { duration: 0.6, delay: card.delay + 0.5 },
-        y: { duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: card.delay },
-      }}
+    <div 
+      className="relative w-full h-screen bg-[#02060f] overflow-hidden flex flex-col items-center justify-center" 
+      style={{ fontFamily: '"Space Grotesk", system-ui, -apple-system, sans-serif' }}
     >
-      <div className={`w-52 backdrop-blur-xl bg-black/50 border ${c.border} rounded-2xl p-4 shadow-2xl`}>
-        <div className="flex items-center gap-2.5 mb-3">
-          <div className={`w-8 h-8 rounded-xl ${c.bg} border ${c.border} flex items-center justify-center`}>
-            <card.icon className={`w-4 h-4 ${c.icon}`} />
-          </div>
-          <span className="text-neutral-400 text-[10px] font-bold uppercase tracking-widest">{card.label}</span>
-        </div>
-        <div className="text-white font-black text-2xl tracking-tight mb-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-          {card.value}
-        </div>
-        <div className="text-neutral-600 text-[9px] uppercase tracking-widest font-bold">{card.sub}</div>
-        {/* Mini bar */}
-        <div className="mt-3 h-0.5 w-full bg-white/5 rounded-full overflow-hidden">
-          <motion.div
-            className={`h-full ${c.bar} rounded-full`}
-            initial={{ width: "0%" }}
-            animate={{ width: "75%" }}
-            transition={{ duration: 1.5, delay: card.delay + 0.8, ease: "easeOut" }}
-          />
-        </div>
-      </div>
-    </motion.div>
-  );
-}
+      
+      {/* ── BACKGROUND VIDEO ── */}
+      <video 
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+        style={{ objectPosition: '50% 50%', backgroundColor: '#03060c' }}
+        autoPlay muted loop playsInline preload="auto" aria-hidden="true"
+        poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/130837c4-0244-4f37-9c61-8d801d93fd29.jpg"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104303_0c6d60b2-9353-408e-9449-585108a22fb5.mp4"
+      />
 
-// ─── Background: Perspective Grid + Code Lines ───
-function EcommerceBackground() {
-  // Mock code lines floating in the BG
-  const codeSnippets = [
-    { text: "import { stripe } from '@/lib/stripe'", x: "8%",  y: "30%", opacity: 0.12 },
-    { text: "const cart = useShoppingCart()",         x: "60%", y: "15%", opacity: 0.10 },
-    { text: "await checkout.create({ lineItems })",   x: "5%",  y: "65%", opacity: 0.09 },
-    { text: "model.predict(user.behavior)",           x: "58%", y: "72%", opacity: 0.11 },
-    { text: "deploy({ target: 'production' })",       x: "20%", y: "85%", opacity: 0.08 },
-    { text: "generateEmbedding(product.description)",x: "52%", y: "55%", opacity: 0.07 },
-  ];
-
-  return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-      {/* Deep radial glows */}
-      <div className="absolute -top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-purple-900/12 blur-[160px]" />
-      <div className="absolute top-1/2 -left-1/4 w-[500px] h-[500px] rounded-full bg-blue-900/10 blur-[120px]" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[400px] rounded-full bg-emerald-900/8 blur-[140px]" />
-
-      {/* Perspective grid floor */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[55vh]"
+      {/* ── VEIL ── */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(168,85,247,0.15) 1px, transparent 1px),
-            linear-gradient(to top, rgba(168,85,247,0.15) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px',
-          transform: 'perspective(600px) rotateX(65deg) translateY(60px) scale(2.2)',
-          transformOrigin: 'bottom center',
-          maskImage: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 80%)',
-          opacity: 0.5,
+          background: `
+            radial-gradient(140% 60% at 50% 40%, rgba(6,10,18,0.16) 0%, rgba(6,10,18,0.057) 50%, rgba(6,10,18,0) 100%),
+            linear-gradient(180deg, rgba(6,10,18,0) 45%, rgba(6,10,18,0.10) 100%)
+          `
         }}
       />
 
-      {/* Floating code text */}
-      {codeSnippets.map((s, i) => (
+      {/* ── HERO CONTENT ── */}
+      <div className="relative z-10 flex flex-col items-center text-center px-4 w-full max-w-[1200px] mx-auto" style={{ marginTop: '5vh' }}>
+        
+        {/* Available for Projects Badge with Green Blinking Light */}
         <motion.div
-          key={i}
-          className="absolute font-mono text-[11px] text-purple-300 whitespace-nowrap hidden md:block"
-          style={{ left: s.x, top: s.y, opacity: s.opacity }}
-          animate={{ opacity: [s.opacity, s.opacity * 2.5, s.opacity] }}
-          transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.8 }}
+          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+          className="mb-5 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.25)]"
         >
-          {s.text}
-        </motion.div>
-      ))}
-
-      {/* Vertical scan lines */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-px bg-gradient-to-b from-transparent via-purple-500/60 to-transparent"
-            style={{ left: `${20 + i * 22}%`, height: '30vh' }}
-            animate={{ top: ['-30%', '130%'] }}
-            transition={{ duration: 5 + i * 0.7, repeat: Infinity, ease: 'linear', delay: i * 1.2 }}
-          />
-        ))}
-      </div>
-
-      {/* Horizontal subtle lines */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px)',
-          backgroundSize: '100% 80px',
-        }}
-      />
-    </div>
-  );
-}
-
-export function SplineSceneBasic({ onCtaClick }: SplineSceneBasicProps) {
-  return (
-    <div className="w-full min-h-screen bg-[#030303] relative overflow-hidden flex items-center justify-center">
-
-      <EcommerceBackground />
-
-      {/* Floating stat cards */}
-      {FLOAT_CARDS.map((card, i) => (
-        <FloatingCard key={i} card={card} i={i} />
-      ))}
-
-      <Spotlight className="-top-40 left-1/2 -translate-x-1/2 md:-top-20" />
-
-      {/* ── CENTERED HERO CONTENT ── */}
-      <div className="relative z-20 flex flex-col items-center text-center px-6 pt-28 pb-16 w-full max-w-5xl mx-auto">
-
-        {/* Top badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/20 bg-purple-500/5 backdrop-blur-md mb-10"
-        >
-          <Star className="w-3 h-3 text-purple-400 fill-purple-400" />
-          <span className="text-[10px] font-bold text-purple-300 uppercase tracking-[0.35em]">Devscosmic A.I · Engineering Forge</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 shadow-[0_0_10px_#10b981]"></span>
+          </span>
+          <span className="text-[11px] sm:text-xs font-mono tracking-[0.2em] uppercase text-emerald-300 font-semibold">
+            Available for projects
+          </span>
         </motion.div>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[2.8rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black leading-[0.92] tracking-tighter mb-8 max-w-4xl"
-          style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-        >
-          <span className="text-white">Engineering</span>{' '}
-          <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent">Unfair</span>
-          <br />
-          <span className="text-white">Advantages</span>{' '}
-          <span className="bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">Through</span>
-          <br />
-          <span className="text-white">Applied AI.</span>
-        </motion.h1>
+        {/* Title */}
+        <h1 className="text-[38px] sm:text-[56px] md:text-[72px] lg:text-[82px] text-white tracking-tight leading-[1.08] mb-8 font-bold drop-shadow-2xl">
+          <motion.span 
+            initial={{ clipPath: 'inset(-100% 0 100% 0)', y: 24, opacity: 0 }}
+            animate={{ clipPath: 'inset(-100% 0 -100% 0)', y: 0, opacity: 1 }}
+            transition={{ duration: 0.85, ease: [0.16,1,0.3,1], delay: 0.32 }}
+            className="block text-slate-200/95 font-medium tracking-tight text-[28px] sm:text-[40px] md:text-[52px] mb-1"
+          >
+            The vision of engineering is
+          </motion.span>
+          <motion.span 
+            initial={{ scale: 0.92, opacity: 0, filter: 'blur(10px)' }}
+            animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 0.9, ease: [0.16,1,0.3,1], delay: 0.44 }}
+            className="relative inline-block font-black tracking-tight"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400 drop-shadow-[0_0_35px_rgba(34,211,238,0.55)]">
+              HUMAN + A.I
+            </span>
+            {/* Subtle high-tech underline pulse */}
+            <motion.span 
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.1, ease: [0.16,1,0.3,1], delay: 0.65 }}
+              className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_12px_#22d3ee]"
+            />
+          </motion.span>
+        </h1>
 
-        {/* Subtext */}
-        <motion.p
+        {/* Subtext HUD Container with Word-by-Word Glitch Decoding Effect */}
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.22, duration: 0.7 }}
-          className="text-neutral-400 text-base md:text-xl leading-relaxed mb-12 max-w-2xl"
+          transition={{ duration: 0.75, ease: [0.25,0.8,0.35,1], delay: 0.7 }}
+          className="relative group mb-10 max-w-2xl mx-auto px-7 py-6 rounded-2xl bg-black/45 backdrop-blur-xl border border-white/10 shadow-[0_10px_35px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden"
         >
-          We architect <span className="text-white font-semibold">autonomous intelligence</span> into your business — turning your e-commerce, SaaS, and enterprise software into self-improving revenue machines.
-        </motion.p>
+          {/* Cybernetic HUD Corner Accents */}
+          <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyan-400/70" />
+          <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-cyan-400/70" />
+          <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyan-400/70" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyan-400/70" />
 
-        {/* Service pills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="flex flex-wrap gap-2 justify-center mb-12"
-        >
-          {[
-            { label: "AI Agents", icon: Cpu, color: "text-purple-400" },
-            { label: "E-Commerce AI", icon: ShoppingCart, color: "text-blue-400" },
-            { label: "SaaS Forge", icon: Globe, color: "text-emerald-400" },
-            { label: "Code Catalyst", icon: Code2, color: "text-amber-400" },
-            { label: "MVP Launch", icon: Rocket, color: "text-rose-400" }
-          ].map((s, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.35 + i * 0.05 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.07] text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-400 backdrop-blur-sm"
-            >
-              <s.icon className={`w-3.5 h-3.5 ${s.color}`} />
-              {s.label}
-            </motion.div>
-          ))}
+          <p className="text-[17px] sm:text-[19px] md:text-[21px] text-slate-100 leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+            <GlitchWordDecoder
+              text="Forging autonomous neural architectures that operate 24/7."
+              startDelay={750}
+              highlightWord="24/7."
+            />
+          </p>
+          <p className="text-[15px] sm:text-[17px] md:text-[18px] text-cyan-200/90 font-mono tracking-wide mt-2">
+            <GlitchWordDecoder
+              text="Welcome to the final iteration of software engineering."
+              startDelay={1750}
+            />
+          </p>
         </motion.div>
 
-        {/* CTA Buttons */}
+        {/* Action Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          transition={{ duration: 0.8, ease: [0.16,1,0.3,1], delay: 0.94 }}
+          className="flex flex-col sm:flex-row items-center gap-5"
         >
           <button
             onClick={onCtaClick}
-            className="group relative px-10 py-5 bg-white text-black text-[11px] font-black uppercase tracking-[0.25em] rounded-2xl hover:bg-neutral-100 transition-all flex items-center gap-3 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.12)]"
+            className="group relative inline-flex items-center justify-center gap-3 px-9 py-4 bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-extrabold text-base sm:text-lg tracking-wide rounded-xl shadow-[0_0_35px_rgba(34,211,238,0.45)] hover:shadow-[0_0_55px_rgba(34,211,238,0.75)] hover:scale-105 active:scale-95 transition-all overflow-hidden"
           >
-            Initiate Project
-            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+            <span className="relative z-10 font-bold">Connect with us</span>
+            <svg className="w-[15px] h-[11px] relative z-10 flex-none stroke-black transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 16 11" fill="none" aria-hidden="true" style={{ strokeWidth: 2.2, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
+              <path d="M0 5.5 H14.6 M10.3 1.2 L14.9 5.5 L10.3 9.8" />
+            </svg>
           </button>
-
-          <div className="flex items-center gap-3 px-6 py-5 rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-md">
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-            <span className="text-[10px] font-bold text-emerald-400 tracking-[0.2em] uppercase">Available for Projects</span>
-          </div>
+          
+          <button
+            onClick={onServicesClick}
+            className="group relative inline-flex items-center justify-center px-9 py-4 bg-slate-900/60 text-white font-semibold text-base sm:text-lg tracking-wide rounded-xl border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-950/40 shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all hover:scale-105 active:scale-95 backdrop-blur-xl"
+          >
+            <span className="group-hover:text-cyan-200 transition-colors">Services</span>
+          </button>
         </motion.div>
 
-        {/* Bottom trust row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="flex items-center gap-8 mt-14 flex-wrap justify-center"
-        >
+        {/* Features List */}
+        <ul className="grid grid-cols-2 lg:flex lg:flex-wrap justify-center gap-x-6 gap-y-4 lg:gap-12 mt-16 w-full max-w-3xl">
           {[
-            { val: "2.4k+", label: "Agents Deployed" },
-            { val: "₹0", label: "Hidden Costs" },
-            { val: "48hr", label: "Prototype Turnaround" },
+            { text: "Autonomous Agents", delay: 1.08 },
+            { text: "Custom AI Models", delay: 1.15 },
+            { text: "Seamless Integrations", delay: 1.22 },
+            { text: "24/7 Operations", delay: 1.29 }
           ].map((item, i) => (
-            <div key={i} className="text-center">
-              <div className="text-white font-black text-2xl tracking-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.val}</div>
-              <div className="text-neutral-600 text-[9px] uppercase tracking-[0.25em] font-bold mt-0.5">{item.label}</div>
-            </div>
+            <motion.li 
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.25,0.8,0.35,1], delay: item.delay }}
+              className="flex items-center gap-3 text-[13px] md:text-[14.5px] text-[#e2ebf5]"
+              style={{ fontWeight: 534, letterSpacing: '-0.05em' }}
+            >
+              <svg className="w-[9px] h-[16px] flex-none stroke-[rgba(214,232,250,0.90)]" viewBox="0 0 11 20" fill="none" style={{ strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round' }}>
+                <path d="M1.15 1.15 L9.6 10 L1.15 18.85" />
+              </svg>
+              <span>{item.text}</span>
+            </motion.li>
           ))}
-        </motion.div>
+        </ul>
+
+        {/* Vertical Rule */}
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 0.55, ease: [0.16,1,0.3,1], delay: 1.34 }}
+          className="w-[1px] h-10 mt-12 origin-top"
+          style={{
+            background: 'linear-gradient(180deg, rgba(186,200,214,0.70) 0%, rgba(206,220,232,0.92) 52%, rgba(182,198,212,0.68) 100%)'
+          }}
+        />
 
       </div>
+      
+      {/* Bottom fade into the next section for seamless merging */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030303] to-transparent pointer-events-none z-30" />
     </div>
   );
 }

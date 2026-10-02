@@ -11,10 +11,11 @@ import { HoverFooter } from './components/ui/hover-footer';
 import { AgentsPage } from './components/ui/agents-page';
 import { LeadModal } from './components/ui/lead-modal';
 import { AuthModal } from './components/ui/auth-modal';
-import { MouseAuras } from './components/ui/mouse-auras';
+
 import { RoiCalculator } from './components/ui/roi-calculator';
 import { TestimonialsSection } from './components/ui/testimonials-section';
 import { TeamSection } from './components/ui/team-section';
+import { DevscosmicBot } from './components/ui/devscosmic-bot';
 import { supabase } from './lib/supabase';
 import { cn } from './lib/utils';
 import {
@@ -37,11 +38,13 @@ import {
   Layout,
   GlassWater,
   ShoppingBag,
-  Home
+  Home,
+  HeartPulse,
+  Sparkles
 } from 'lucide-react';
 
 const ICON_MAP: any = {
-  Brain, Code2, Database, Cpu, Plane, Map, Rocket, Globe, Terminal, Cloud, ArrowUpRight, Star, Shield, GraduationCap, Layout
+  Brain, Code2, Database, Cpu, Plane, Map, Rocket, Globe, Terminal, Cloud, ArrowUpRight, Star, Shield, GraduationCap, Layout, HeartPulse, Sparkles
 };
 
 const TECH_STACK = [
@@ -243,6 +246,28 @@ const PLANS = [
 ];
 
 const CODING_PROJECTS = [
+  {
+    id: "weight-mantra",
+    name: "Weight Mantra",
+    status: "Live",
+    statusColor: "emerald",
+    description: "High-performance health supplement & wellness e-commerce platform engineered with responsive modern UI and seamless checkout.",
+    features: ["Dietary Supplement Catalog", "Smart BMI & Nutritional Guide", "Cart & Secure Razorpay/UPI", "Mobile-First Conversion UX"],
+    icon: HeartPulse,
+    accentColor: "from-emerald-500/20 to-emerald-500/0",
+    link: "https://weight-mantra.vercel.app/"
+  },
+  {
+    id: "glowmitra",
+    name: "GlowMitra",
+    status: "Live",
+    statusColor: "emerald",
+    description: "Premier beauty salon, parlor & aesthetic wellness booking portal tailored exclusively for women and girls.",
+    features: ["Salon Treatment Menu & Pricing", "Instant Slot Appointment Booking", "Bridal & Hair Spa Packages", "Automated WhatsApp Confirmation"],
+    icon: Sparkles,
+    accentColor: "from-rose-500/20 to-rose-500/0",
+    link: "https://www.glowmitra.co.in/"
+  },
   {
     id: "uneplore",
     name: "Uneplore Himalayas",
@@ -525,7 +550,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#030303] flex flex-col selection:bg-purple-500/30 relative">
-      <MouseAuras />
+
       <Navbar
         onScrollToSection={scrollToSection}
         onNavigateToPage={navigateToPage}
@@ -549,6 +574,17 @@ export default function App() {
         source={modalSource}
       />
 
+      {/* Devscosmic AI Assistant Chatbot */}
+      <DevscosmicBot
+        onOpenInquiry={openInquiryModal}
+        onScrollTo={scrollToSection}
+        onNavigate={navigateToPage}
+        plans={livePlans}
+        courses={liveCourses}
+        agents={liveAgents}
+        projects={CODING_PROJECTS}
+      />
+
       <AnimatePresence mode="wait">
         {currentPage === 'home' ? (
           <motion.main
@@ -561,7 +597,7 @@ export default function App() {
           >
             {/* Hero */}
             <section className="w-full h-screen relative z-10 overflow-hidden">
-              <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} />
+              <SplineSceneBasic onCtaClick={() => scrollToSection('cta')} onServicesClick={() => scrollToSection('plans')} />
             </section>
 
             <div className="px-5 sm:px-10 lg:px-20 max-w-[1920px] mx-auto relative z-20">
@@ -886,9 +922,9 @@ export default function App() {
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                       About The Agency
                     </div>
-                    <h1 className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-[0.85] mb-12">
-                      Engineering<br/>
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Unfair Advantages.</span>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.85] mb-12">
+                      The vision of engineering is<br/>
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 drop-shadow-[0_0_30px_rgba(168,85,247,0.4)]">Human + A.I</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-neutral-400 font-medium leading-relaxed max-w-2xl">
                       We don't just build software. We architect autonomous intelligence and high-velocity systems for the next generation of industry leaders.
